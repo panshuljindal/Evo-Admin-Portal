@@ -1,0 +1,38 @@
+.main {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-img {
+  width: 135px;
+  height: auto;
+}
+
+.logo-text {
+  font-family: 'Raleway', sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 64px;
+  line-height: 75px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #7d50ff;
+  width: 20%;
+  border-bottom: 3px solid #7d50ff;
+}
+.sub-text {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 42px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #b0b0b0;
+}
