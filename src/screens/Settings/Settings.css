@@ -1,0 +1,50 @@
+.set-container {
+  display: flex;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.middle-set {
+  width: 30vw;
+  height: 100vh;
+  box-sizing: border-box;
+  padding-top: 1%;
+  overflow: hidden;
+}
+
+.middle-set h3 {
+  font-weight: 600;
+  font-size: 1.75em;
+  line-height: 128.5%;
+  letter-spacing: 0.02em;
+  color: #f7f7fc;
+}
+.middle-set .box {
+  border-right: 1px solid #202020;
+}
+.middle-set ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.middle-set ul li {
+  font-weight: 600;
+  font-size: 1em;
+  line-height: 1.6875em;
+  color: #ffffff;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  border-bottom: 1px solid #202020;
+  cursor: pointer;
+}
+
+.right-set {
+  width: 50vw;
+  box-sizing: border-box;
+  padding-top: 5%;
+  padding-left: 2%;
+  padding-right: 3%;
+  overflow-y: scroll;
+  overflow: auto;
+}

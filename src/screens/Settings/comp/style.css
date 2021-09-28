@@ -1,0 +1,81 @@
+/* Partners */
+
+.partner,
+.events,
+.security,
+.faq,
+.info,
+.privacy {
+  overflow-y: scroll;
+  overflow: auto;
+}
+.partner h3,
+.events h3,
+.security h3,
+.faq h3,
+.connect h3,
+.info h3,
+.privacy h3 {
+  font-weight: 600;
+  font-size: 1.5em;
+  line-height: 128.5%;
+  letter-spacing: 0.02em;
+  color: #f7f7fc;
+}
+.partner p {
+  font-weight: 500;
+  font-size: 1em;
+  line-height: 2em;
+}
+
+.partner p ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.partner p ul li::before {
+  content: "\2022";
+  color: #5f2eea;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  /* margin-left: -2em;  */
+}
+
+.security ul,
+.connect ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.security ul li,
+.connect ul li {
+  font-weight: 600;
+  font-size: 1em;
+  line-height: 1.6875em;
+  color: #ffffff;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  border-bottom: 1px solid #202020;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.security ul li.red {
+  color: #ff295d;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.info .card-main {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
