@@ -1,8 +1,9 @@
 import React from "react";
 import { BrowserRouter, Router, Switch, Route } from "react-router-dom";
-// import Landing from "./pages/Landing";
-// import Login from "./pages/Login";
-// import Signup from "./pages/Signup";
+import { motion } from "framer-motion";
+import Landing from "./pages/Landing";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import Dashboard from "./screens/Dashboard/Dashboard";
 import Settings from "./screens/Settings/Settings";
 import AllEvents from "./screens/AllEvents/AllEvents";
@@ -13,6 +14,13 @@ import Navbar from "./screens/components/Navbar";
 function App() {
   return (
     <BrowserRouter>
+      <Landing />
+      <Switch>
+        <Route exact path="/register" component={Signup} />
+        <Route exact path="/login" component={Login} />
+      </Switch>
+    </BrowserRouter> 
+    /*<BrowserRouter>
       <div>
         <Navbar />
         <Switch>
@@ -23,7 +31,7 @@ function App() {
           <Route path="/settings" component={Settings} />
         </Switch>
       </div>
-    </BrowserRouter>
+    </BrowserRouter>*/
   );
 }
 

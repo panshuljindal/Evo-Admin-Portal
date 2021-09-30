@@ -1,4 +1,4 @@
-.main {
+.layout {
   height: 100vh;
   width: 100vw;
   margin: 0;
@@ -10,29 +10,135 @@
 }
 
 .logo-img {
-  width: 135px;
+  width: 8%;
   height: auto;
+  pointer-events: none;
 }
 
 .logo-text {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-style: italic;
   font-weight: bold;
-  font-size: 64px;
+  font-size: 3.7em;
   line-height: 75px;
   text-align: center;
   letter-spacing: 0.02em;
   color: #7d50ff;
-  width: 20%;
+  width: 22%;
   border-bottom: 3px solid #7d50ff;
+  margin-bottom: 0;
+  margin-top: 2%;
 }
 .sub-text {
   font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 28px;
+  font-size: 1.4em;
   line-height: 42px;
   text-align: center;
   letter-spacing: 0.02em;
   color: #b0b0b0;
+  margin-top: 0.3%;
+}
+
+.black {
+  position: absolute;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  background-color: #000000;
+  overflow: hidden;
+}
+.black .overflow-hidden {
+  overflow: hidden;
+}
+
+.black-text {
+  position: absolute;
+  z-index: 50;
+  display: flex;
+}
+
+.text-white {
+  color: #7d50ff;
+}
+
+.rectangle {
+  width: 100vw;
+  height: 100vw;
+  fill: currentColor;
+}
+.rectangle-text {
+  width: 100vw;
+  height: 100vh;
+  color: #ffffff;
+  font-weight: 600;
+  fill: currentColor;
+}
+
+.rect-text {
+  font-weight: bold;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-family: poppins;
+}
+
+/* Buttons CSS */
+.or {
+  margin: 7px;
+}
+.btn-main {
+  margin-top: 4%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.filled-btn {
+  width: 280px;
+  height: 56px;
+  border-radius: 16px;
+  background-color: #5f2eea;
+  font-weight: 600;
+  font-size: 0.9em;
+  line-height: 175%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  letter-spacing: 0.75px;
+  color: #f7f7fc;
+  border: none;
+  margin: 0;
+  cursor: pointer;
+}
+
+.hollow-btn {
+  width: 280px;
+  height: 56px;
+  border: 2px solid #5f2eea;
+  background-color: #121212;
+  box-sizing: border-box;
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 0.9em;
+  line-height: 175%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  letter-spacing: 0.75px;
+  color: #f7f7fc;
+  margin: 0;
+  cursor: pointer;
+}
+button {
+  opacity: 0.9;
+  transition: 0.5s linear;
+}
+button:hover {
+  opacity: 1;
 }
