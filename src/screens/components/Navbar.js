@@ -25,20 +25,20 @@ class Navbar extends Component {
         <div className="nav-main">
           <div className="nav-logo">
           <NavLink to="/profile/" activeClassName="active">
-            <div className="logo-circle">
+            <div className="logo-circle" title="Edit Profile">
               <img
                 src="https://i.postimg.cc/XYf7J1cX/adg-logo.png"
                 alt="Logo"
               ></img>
             </div>
             </NavLink>
-            <div className="logo-edit">
+            <div className="logo-edit" title="Edit Profile">
               <NavLink to="/profile/">
                 <EditIcon />
               </NavLink>
             </div>
             <div className="nav-text">
-              <p className="club-name">SomeClub VITTTTTTT</p>
+              <p className="club-name" title="Some Club VITTTTTTT">SomeClub VITTTTTTT</p>
               <p className="event-count">Total Events: 12</p>
             </div>
           </div>
@@ -47,7 +47,7 @@ class Navbar extends Component {
             <div className="links">
               <ul>
                 <li>
-                  <NavLink exact to="/" activeClassName="active">
+                  <NavLink exact to="/dashboard/" activeClassName="active">
                     <DashIcon className="clr"/> &ensp; Dashboard
                   </NavLink>
                 </li>
@@ -73,19 +73,19 @@ class Navbar extends Component {
             <div className="heading">SOCIALS</div>
             <div className="links">
               <ul>
-                <li>
+                <li title="Instagram">
                   <IGIcon /> &ensp; <p> @adgvnnnn</p>
                 </li>
-                <li>
+                <li title="Facebook">
                   <FBIcon /> &ensp; <p> @adgvitnnnn</p>
                 </li>
-                <li>
+                <li title="Twitter">
                   <TWIcon /> &ensp; <p> $adgnnnnn</p>
                 </li>
-                <li>
+                <li title="Linkedin">
                   <LDIcon /> &ensp; <p> @adgvitnnnnnn</p>
                 </li>
-                <li>
+                <li title="Medium">
                   <MEIcon /> &ensp; <p> @adgvit202111nnnnnnnnnnnnnnn</p>
                 </li>
               </ul>

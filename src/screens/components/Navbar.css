@@ -229,6 +229,7 @@
   font-size: 1em;
   line-height: 1.6875em;
   color: #ff295d;
+  cursor: pointer;
   /* background-color: royalblue; */
   /* overflow: hidden; */
 }

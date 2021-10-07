@@ -97,44 +97,6 @@
   align-items: center;
   flex-direction: column;
 }
-.filled-btn {
-  width: 280px;
-  height: 56px;
-  border-radius: 16px;
-  background-color: #5f2eea;
-  font-weight: 600;
-  font-size: 0.9em;
-  line-height: 175%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  letter-spacing: 0.75px;
-  color: #f7f7fc;
-  border: none;
-  margin: 0;
-  cursor: pointer;
-}
-
-.hollow-btn {
-  width: 280px;
-  height: 56px;
-  border: 2px solid #5f2eea;
-  background-color: #121212;
-  box-sizing: border-box;
-  border-radius: 16px;
-  font-weight: 600;
-  font-size: 0.9em;
-  line-height: 175%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  letter-spacing: 0.75px;
-  color: #f7f7fc;
-  margin: 0;
-  cursor: pointer;
-}
 button {
   opacity: 0.9;
   transition: 0.5s linear;

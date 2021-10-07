@@ -10,28 +10,37 @@ import AllEvents from "./screens/AllEvents/AllEvents";
 import NewEvent from "./screens/NewEvent/NewEvent";
 import EditProfile from "./screens/EditProfile/EditProfile";
 import Navbar from "./screens/components/Navbar";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Landing />
+    /*<BrowserRouter>
       <Switch>
+        <Route exact path="/" component={Landing} />
         <Route exact path="/register" component={Signup} />
         <Route exact path="/login" component={Login} />
       </Switch>
-    </BrowserRouter> 
-    /*<BrowserRouter>
+    </BrowserRouter>*/
+    <BrowserRouter>
       <div>
+      <Loader
+        type="Oval"
+        color="#5F2EEA"
+        height={50}
+        width={50}
+        timeout={10000} //3 secs
+      />
         <Navbar />
         <Switch>
-          <Route exact path="/" component={Dashboard} />
-          <Route path="/profile" component={EditProfile} />
-          <Route path="/all" component={AllEvents} />
-          <Route path="/new" component={NewEvent} />
-          <Route path="/settings" component={Settings} />
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/profile" component={EditProfile} />
+          <Route exact path="/all" component={AllEvents} />
+          <Route exact path="/new" component={NewEvent} />
+          <Route exact path="/settings" component={Settings} />
         </Switch>
       </div>
-    </BrowserRouter>*/
+    </BrowserRouter>
   );
 }
 

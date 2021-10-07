@@ -6,6 +6,8 @@ import Logo from "../assets/brand/logo.svg";
 import { ReactComponent as OrIcon } from "./assets/or.svg";
 import Login from "./Login";
 import Signup from "./Signup";
+import FilledBtn from "../components/FilledButton";
+import HollowBtn from "../components/HollowButton";
 
 export default function Landing() {
   return (
@@ -18,13 +20,13 @@ export default function Landing() {
 
         <div className="btn-main">
           <Link to="/register" exact>
-            <button className="filled-btn">Register My Club</button>
+            <FilledBtn text="Register My Club"></FilledBtn>
           </Link>
           <div className="or">
             <OrIcon />
           </div>
           <Link to="/login" replace>
-            <button className="hollow-btn">Login</button>
+           <HollowBtn text="Login"></HollowBtn>
           </Link>
         </div>
       </div>
