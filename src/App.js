@@ -15,14 +15,14 @@ import Loader from "react-loader-spinner";
 
 function App() {
   return (
-    /*<BrowserRouter>
+    <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Landing} />
         <Route exact path="/register" component={Signup} />
         <Route exact path="/login" component={Login} />
       </Switch>
-    </BrowserRouter>*/
-    <BrowserRouter>
+    </BrowserRouter>
+    /*<BrowserRouter>
       <div>
       <Loader
         type="Oval"
@@ -40,7 +40,7 @@ function App() {
           <Route exact path="/settings" component={Settings} />
         </Switch>
       </div>
-    </BrowserRouter>
+    </BrowserRouter>*/
   );
 }
 

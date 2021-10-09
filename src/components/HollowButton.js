@@ -19,6 +19,13 @@ const HollBtn = styled.button`
   color: #f7f7fc;
   margin: 0;
   cursor: pointer;
+
+
+  @media only screen and (max-width: 400px){
+    width: 250px;
+    height: 50px;
+    font-size: 0.9em;
+  }
 `;
 
 const HollowBtn = (props) => {

@@ -21,7 +21,9 @@ function Login() {
           <FilledBtn text="Login"></FilledBtn>
         </div>
         <Link to="/register" exact>
-        <p className="link-reg">New Here? <span>Register Your Club to Continue</span></p>
+          <p className="link-reg">
+            New Here? <span>Register Your Club to Continue</span>
+          </p>
         </Link>
       </div>
     </div>

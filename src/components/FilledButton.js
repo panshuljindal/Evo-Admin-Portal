@@ -18,6 +18,13 @@ const FillBtn = styled.button`
   border: none;
   margin: 0;
   cursor: pointer;
+
+
+  @media only screen and (max-width: 400px){
+    width: 250px;
+    height: 50px;
+    font-size: 0.9em;
+  }
 `;
 
 const FilledBtn = (props) => {

@@ -104,3 +104,64 @@ button {
 button:hover {
   opacity: 1;
 }
+
+/* Galaxy S5 */
+@media only screen and (max-width: 400px) {
+  .logo-img {
+    width: 25%;
+  }
+  .logo-text {
+    font-size: 2.5em;
+  }
+  .sub-text {
+    font-size: 1em;
+  }
+}
+/* Pixel 2 or Pixel 2 XL */
+@media only screen and (min-width: 401px) and (max-width: 576px) {
+  .logo-img {
+    width: 25%;
+  }
+  .logo-text {
+    font-size: 2.5em;
+  }
+  .sub-text {
+    font-size: 1em;
+  }
+}
+/* iPad */
+@media only screen and (min-width: 577px) and (max-width: 768px) {
+  .logo-img {
+    width: 20%;
+  }
+  .logo-text {
+    font-size: 3.6em;
+  }
+  .sub-text {
+    font-size: 1.8em;
+  }
+}
+/* iPad Pro */
+@media only screen and (min-width: 769px) and (max-width: 990px) {
+  .logo-img {
+    width: 15%;
+  }
+  .logo-text {
+    font-size: 2.5em;
+  }
+  .sub-text {
+    font-size: 1em;
+  }
+}
+/* 1280 x 900 */
+@media only screen and (min-width: 991px) and (max-width: 1280px) {
+  .logo-img {
+    width: 20%;
+  }
+  .logo-text {
+    font-size: 3.6em;
+  }
+  .sub-text {
+    font-size: 1.8em;
+  }
+}

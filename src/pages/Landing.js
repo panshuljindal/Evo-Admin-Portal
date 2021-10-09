@@ -25,7 +25,7 @@ export default function Landing() {
           <div className="or">
             <OrIcon />
           </div>
-          <Link to="/login" replace>
+          <Link to="/login" exact>
            <HollowBtn text="Login"></HollowBtn>
           </Link>
         </div>
