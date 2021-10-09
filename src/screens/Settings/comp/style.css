@@ -56,8 +56,8 @@
   font-size: 1em;
   line-height: 1.6875em;
   color: #ffffff;
-  padding-top: 3%;
-  padding-bottom: 3%;
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
   border-bottom: 1px solid #202020;
   cursor: pointer;
   display: flex;
@@ -78,4 +78,28 @@ a {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+.styles_faq-row-wrapper__3vA1D
+  .styles_row-body__1NvUo
+  .styles_faq-row__2YF3c
+  .styles_row-title__1YiiY {
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  line-height: 27px !important;
+}
+
+.styles_faq-row-wrapper__3vA1D
+  .styles_row-body__1NvUo
+  .styles_faq-row__2YF3c
+  .styles_row-content__QOGZd
+  .styles_row-content-text__2sgAB {
+  font-size: 14px !important;
+  line-height: 200% !important;
+  letter-spacing: -0.02em !important;
+  color: #f7f7fc !important;
+}
+
+.styles_faq-row-wrapper__3vA1D .styles_faq-row__2YF3c {
+  border-bottom: 1px solid #202020 !important;
 }

@@ -15,13 +15,16 @@ import Loader from "react-loader-spinner";
 
 function App() {
   return (
-    <BrowserRouter>
+    <div>
+      <Settings></Settings>
+    </div>
+    /*<BrowserRouter>
       <Switch>
         <Route exact path="/" component={Landing} />
         <Route exact path="/register" component={Signup} />
         <Route exact path="/login" component={Login} />
       </Switch>
-    </BrowserRouter>
+    </BrowserRouter>*/
     /*<BrowserRouter>
       <div>
       <Loader

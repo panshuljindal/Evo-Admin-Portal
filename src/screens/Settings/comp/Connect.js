@@ -2,6 +2,7 @@ import "./style.css";
 import { ReactComponent as Instagram } from "./assets/instagram.svg";
 import { ReactComponent as Twitter } from "./assets/twitter.svg";
 import { ReactComponent as Linkedin } from "./assets/linkedin.svg";
+import { ReactComponent as Facebook } from "./assets/facebook.svg";
 import { ReactComponent as Mail } from "./assets/mail.svg";
 function Connect() {
   return (
@@ -10,7 +11,7 @@ function Connect() {
       <div className="box">
         <ul>
           <a
-            href="https://instagram.com/evo.app.in/"
+            href="https://instagram.com/evoappin"
             target="_blank"
             rel="noreferrer"
           >
@@ -28,7 +29,16 @@ function Connect() {
             </li>
           </a>
           <a
-            href="https://www.linkedin.com/in/evoappin/"
+            href="https://www.facebook.com/EvoAppIn/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <li>
+              <Facebook /> &ensp; Facebook
+            </li>
+          </a>
+          <a
+            href="https://www.linkedin.com/company/evoappin"
             target="_blank"
             rel="noreferrer"
           >
@@ -36,7 +46,7 @@ function Connect() {
               <Linkedin />&ensp; Linkedin
             </li>
           </a>
-          <a href="mailto:evoappin@gmail.com" target="_blank" rel="noreferrer">
+          <a href="mailto: evoappin@gmail.com" target="_blank" rel="noreferrer">
             <li>
               <Mail /> &ensp; E-Mail
             </li>

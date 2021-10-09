@@ -41,10 +41,10 @@
 
 .right-set {
   width: 50vw;
+  height: 100vh;
   box-sizing: border-box;
   padding-top: 5%;
   padding-left: 2%;
   padding-right: 3%;
   overflow-y: scroll;
-  overflow: auto;
 }
