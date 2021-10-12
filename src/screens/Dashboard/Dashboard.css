@@ -1,33 +1,106 @@
-.cont-dash{
-    width: 100vw;
-    height: 100vh;
-    padding: 0%;
-    margin: 0%;
-    display: flex;
-    flex-direction: row;
-    box-sizing: border-box;
-    overflow-x: hidden;
-    overflow-y: hidden;
+.cont-dash {
+	width: 100vw;
+	height: 100vh;
+	padding: 0%;
+	margin: 0%;
+	display: flex;
+	flex-direction: row;
+	box-sizing: border-box;
+	overflow-x: hidden;
+	overflow-y: hidden;
 }
 
-.middle-dash{
-    width: 52vw;
-    height: 100vh;
-    padding-left: 1%;
-    padding-right: 1%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* background-color: red; */
+.middle-dash {
+	width: 55vw;
+	height: 100vh;
+	padding-left: 1%;
+	padding-right: 1%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	/* background-color: red; */
+	/* border: 2px solid green; */
 }
 
-.right-dash{
-    width: 23vw;
-    height: 100vh;
-    padding-left: 1%;
-    padding-right: 4%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* background-color: blue; */
+.middle-top {
+	width: 100%;
+	height: 27%;
+	/* border: 2px solid blue; */
+	display: flex;
+	justify-content: center;
+	padding: 0.5%;
+	padding-top: 2%;
+}
+
+.banner {
+	max-width: 100%;
+	height: auto;
+}
+
+.middle-mid {
+	width: 100%;
+	height: 38%;
+	/* border: 2px solid yellow; */
+	padding: 0.5%;
+}
+
+.middle-bot {
+	width: 100%;
+	height: 35vh;
+	/* border: 2px solid orange; */
+	padding: 0.5%;
+}
+
+.right-dash {
+	width: 20vw;
+	height: 100vh;
+	padding-left: 1%;
+	padding-right: 4%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* background-color: blue; */
+	/* border: 2px solid red; */
+}
+
+.notif-main {
+	background: #181818;
+	border-radius: 32px;
+	height: 95%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 0;
+	overflow: hidden;
+}
+.notif {
+	font-weight: 600;
+	font-size: 21px;
+	line-height: 31px;
+}
+
+.notif-text {
+	width: 100%;
+	height: auto;
+	border-bottom: 0.5px solid #202020;
+	font-size: 14px;
+	line-height: 21px;
+	text-align: center;
+	padding-bottom: 5%;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-top: 5%;
+	box-sizing: border-box;
+
+	color: #ffffff;
+}
+
+.notif-text span {
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 21px;
+	color: #5f2eea;
 }

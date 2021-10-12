@@ -4,6 +4,7 @@ import "./Login.css";
 //Assets
 import Logo from "../assets/brand/logo.svg";
 import FilledBtn from "../components/FilledButton";
+import InputBox from "../components/InputBox";
 
 function Login() {
   return (
@@ -17,7 +18,9 @@ function Login() {
       <div className="right-login">
         <div className="input-box">
           <h1 className="box-head">Login</h1>
-          <input type="text" className="box-input" value="Hiiiiiiii" />
+          <InputBox type="email" place="Email" />
+          <InputBox type="password" place="Password" />
+          <br/>
           <FilledBtn text="Login"></FilledBtn>
         </div>
         <Link to="/register" exact>

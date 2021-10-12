@@ -15,9 +15,6 @@ import Loader from "react-loader-spinner";
 
 function App() {
   return (
-    <div>
-      <Settings></Settings>
-    </div>
     /*<BrowserRouter>
       <Switch>
         <Route exact path="/" component={Landing} />
@@ -25,15 +22,15 @@ function App() {
         <Route exact path="/login" component={Login} />
       </Switch>
     </BrowserRouter>*/
-    /*<BrowserRouter>
+    <BrowserRouter>
       <div>
-      <Loader
+      {/* <Loader
         type="Oval"
         color="#5F2EEA"
         height={50}
         width={50}
         timeout={10000} //3 secs
-      />
+      /> */}
         <Navbar />
         <Switch>
           <Route exact path="/dashboard" component={Dashboard} />
@@ -43,7 +40,7 @@ function App() {
           <Route exact path="/settings" component={Settings} />
         </Switch>
       </div>
-    </BrowserRouter>*/
+    </BrowserRouter>
   );
 }
 

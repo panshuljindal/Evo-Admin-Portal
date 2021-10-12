@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import "./Landing.css";
 import Logo from "../assets/brand/logo.svg";
 import { ReactComponent as OrIcon } from "./assets/or.svg";
+import { ReactComponent as Head } from "./assets/evo.svg";
+import { ReactComponent as Sub } from "./assets/sub.svg";
 import Login from "./Login";
 import Signup from "./Signup";
 import FilledBtn from "../components/FilledButton";
@@ -15,8 +17,8 @@ export default function Landing() {
       <InitialTransition />
       <div className="layout">
         <img src={Logo} className="logo-img" alt="Evo Logo"></img>
-        <p className="logo-text">EVO</p>
-        <p className="sub-text">The Best way to Market your Events</p>
+        <p className="logo-text"><Head></Head></p> 
+        <p className="sub-text"><Sub></Sub></p>
 
         <div className="btn-main">
           <Link to="/register" exact>

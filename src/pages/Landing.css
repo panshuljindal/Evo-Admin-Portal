@@ -1,167 +1,169 @@
 .layout {
-  height: 100vh;
-  width: 100vw;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	height: 100vh;
+	width: 100vw;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-image: url("./assets//bg.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .logo-img {
-  width: 8%;
-  height: auto;
-  pointer-events: none;
+	width: 8%;
+	height: auto;
+	pointer-events: none;
 }
 
 .logo-text {
-  font-family: "Raleway", sans-serif;
-  font-style: italic;
-  font-weight: bold;
-  font-size: 3.7em;
-  line-height: 75px;
-  text-align: center;
-  letter-spacing: 0.02em;
-  color: #7d50ff;
-  width: 22%;
-  border-bottom: 3px solid #7d50ff;
-  margin-bottom: 0;
-  margin-top: 2%;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 6.75em;
+	line-height: 75px;
+	text-align: center;
+	letter-spacing: 0.02em;
+	color: #ffffff;
+	width: 22%;
+	margin-bottom: 2%;
+	margin-top: 2%;
 }
 .sub-text {
-  font-family: "Poppins", sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 1.4em;
-  line-height: 42px;
-  text-align: center;
-  letter-spacing: 0.02em;
-  color: #b0b0b0;
-  margin-top: 0.3%;
+	font-family: MonumentRegular;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 2.25em;
+	line-height: 42px;
+	text-align: center;
+	letter-spacing: 0.02em;
+	color: #ffffff;
+	margin-top: 0.3%;
 }
 
 .black {
-  position: absolute;
-  z-index: 50;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  background-color: #000000;
-  overflow: hidden;
+	position: absolute;
+	z-index: 50;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100vw;
+	background-color: #000000;
+	overflow: hidden;
 }
 .black .overflow-hidden {
-  overflow: hidden;
+	overflow: hidden;
 }
 
 .black-text {
-  position: absolute;
-  z-index: 50;
-  display: flex;
+	position: absolute;
+	z-index: 50;
+	display: flex;
 }
 
 .text-white {
-  color: #7d50ff;
+	color: #7d50ff;
 }
 
 .rectangle {
-  width: 100vw;
-  height: 100vw;
-  fill: currentColor;
+	width: 100vw;
+	height: 100vw;
+	fill: currentColor;
 }
 .rectangle-text {
-  width: 100vw;
-  height: 100vh;
-  color: #ffffff;
-  font-weight: 600;
-  fill: currentColor;
+	width: 100vw;
+	height: 100vh;
+	color: #ffffff;
+	font-weight: 600;
+	fill: currentColor;
 }
 
 .rect-text {
-  font-weight: bold;
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-  font-family: poppins;
+	font-weight: bold;
+	font-size: 2.25rem;
+	line-height: 2.5rem;
+	font-family: poppins;
 }
 
 /* Buttons CSS */
 .or {
-  margin: 7px;
+	margin: 7px;
 }
 .btn-main {
-  margin-top: 4%;
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+	margin-top: 4%;
+	width: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
 button {
-  opacity: 0.9;
-  transition: 0.5s linear;
+	opacity: 0.9;
+	transition: 0.5s linear;
 }
 button:hover {
-  opacity: 1;
+	opacity: 1;
 }
 
 /* Galaxy S5 */
 @media only screen and (max-width: 400px) {
-  .logo-img {
-    width: 25%;
-  }
-  .logo-text {
-    font-size: 2.5em;
-  }
-  .sub-text {
-    font-size: 1em;
-  }
+	.logo-img {
+		width: 25%;
+	}
+	.logo-text {
+		font-size: 2.5em;
+	}
+	.sub-text {
+		font-size: 1em;
+	}
 }
 /* Pixel 2 or Pixel 2 XL */
 @media only screen and (min-width: 401px) and (max-width: 576px) {
-  .logo-img {
-    width: 25%;
-  }
-  .logo-text {
-    font-size: 2.5em;
-  }
-  .sub-text {
-    font-size: 1em;
-  }
+	.logo-img {
+		width: 25%;
+	}
+	.logo-text {
+		font-size: 2.5em;
+	}
+	.sub-text {
+		font-size: 1em;
+	}
 }
 /* iPad */
 @media only screen and (min-width: 577px) and (max-width: 768px) {
-  .logo-img {
-    width: 20%;
-  }
-  .logo-text {
-    font-size: 3.6em;
-  }
-  .sub-text {
-    font-size: 1.8em;
-  }
+	.logo-img {
+		width: 20%;
+	}
+	.logo-text {
+		font-size: 3.6em;
+	}
+	.sub-text {
+		font-size: 1.8em;
+	}
 }
 /* iPad Pro */
 @media only screen and (min-width: 769px) and (max-width: 990px) {
-  .logo-img {
-    width: 15%;
-  }
-  .logo-text {
-    font-size: 2.5em;
-  }
-  .sub-text {
-    font-size: 1em;
-  }
+	.logo-img {
+		width: 15%;
+	}
+	.logo-text {
+		font-size: 2.5em;
+	}
+	.sub-text {
+		font-size: 1em;
+	}
 }
 /* 1280 x 900 */
 @media only screen and (min-width: 991px) and (max-width: 1280px) {
-  .logo-img {
-    width: 20%;
-  }
-  .logo-text {
-    font-size: 3.6em;
-  }
-  .sub-text {
-    font-size: 1.8em;
-  }
+	.logo-img {
+		width: 20%;
+	}
+	.logo-text {
+		font-size: 3.6em;
+	}
+	.sub-text {
+		font-size: 1.8em;
+	}
 }
