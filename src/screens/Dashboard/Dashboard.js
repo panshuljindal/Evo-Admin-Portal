@@ -2,6 +2,8 @@ import "./Dashboard.css";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import PartnerBanner from "./assets/partner.svg";
+import UpcomingIcon from "./assets/UpcomingIcon.png";
+import GreyIcon from "./assets/GreyIcon.png";
 import Notif from "./Notif";
 
 function Dashboard() {
@@ -15,8 +17,117 @@ function Dashboard() {
           <div className="middle-top">
             <img src={PartnerBanner} alt="Partner" className="banner"></img>
             </div>
-          <div className="middle-mid">Hi Mid</div>
-          <div className="middle-bot">Hi Bottom</div>
+          <div className="middle-mid">
+            <h3 className="title">Upcoming Events</h3>
+
+            <div className="row">
+              <div className="middle-card">
+                <p>01</p>
+                <img src={UpcomingIcon} alt="upcoming-event" className="upcoming-icon"></img>
+                <div className="details">
+                  <p>Event Name</p>
+                  <p>Jul 21 2021, 08:00PM</p>
+                  <p>Free</p>
+                  <p>120 Likes</p>
+                </div>
+              </div>
+
+              <div className="middle-card">
+                <p>02</p>
+                <img src={UpcomingIcon} alt="upcoming-event" className="upcoming-icon"></img>
+                <div className="details">
+                  <p>Event Name</p>
+                  <p>Jul 21 2021, 08:00PM</p>
+                  <p>Free</p>
+                  <p>120 Likes</p>
+                </div>
+              </div>
+            </div>
+
+
+            <div className="row">
+              <div className="middle-card">
+                <p>03</p>
+                <img src={UpcomingIcon} alt="upcoming-event" className="upcoming-icon"></img>
+                <div className="details">
+                  <p>Event Name</p>
+                  <p>Jul 21 2021, 08:00PM</p>
+                  <p>Free</p>
+                  <p>120 Likes</p>
+                </div>
+              </div>
+
+              <div className="middle-card">
+                <p>04</p>
+                <img src={UpcomingIcon} alt="upcoming-event" className="upcoming-icon"></img>
+                <div className="details">
+                  <p>Event Name</p>
+                  <p>Jul 21 2021, 08:00PM</p>
+                  <p>Free</p>
+                  <p>120 Likes</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div className="middle-bot">
+            <div className="right-bottom">
+              <h3 className="title">Most Viewed Events</h3>
+              <div className="bottom-card">
+                <p>01</p>
+                <img src={GreyIcon} alt="event" className="event-icon"></img>
+                <div className="details">
+                  <p>Event Name</p>
+                  <p>Views: 200</p>
+                </div>
+              </div>  
+              <div className="bottom-card">
+                <p>02</p>
+                <img src={GreyIcon} alt="event" className="event-icon"></img>
+                <div className="details">
+                  <p>Event Name</p>
+                  <p>Views: 200</p>
+                </div>
+              </div>  
+              <div className="bottom-card">
+                <p>03</p>
+                <img src={GreyIcon} alt="event" className="event-icon"></img>
+                <div className="details">
+                  <p>Event Name</p>
+                  <p>Views: 200</p>
+                </div>
+              </div>  
+            </div>
+
+            <div className="left-bottom">
+              <h3 className="title">Most Liked Events</h3>
+              <div className="bottom-card">
+                <p>01</p>
+                <img src={GreyIcon} alt="event" className="event-icon"></img>
+                <div className="details">
+                  <p>Event Name</p>
+                  <p>Likes: 200</p>
+                </div>
+              </div>  
+              <div className="bottom-card">
+                <p>02</p>
+                <img src={GreyIcon} alt="event" className="event-icon"></img>
+                <div className="details">
+                  <p>Event Name</p>
+                  <p>Likes: 200</p>
+                </div>
+              </div>  
+              <div className="bottom-card">
+                <p>03</p>
+                <img src={GreyIcon} alt="event" className="event-icon"></img>
+                <div className="details">
+                  <p>Event Name</p>
+                  <p>Likes: 200</p>
+                </div>
+              </div>  
+            </div>
+          </div>
         </div>
         <div className="right-dash">
           <div className="notif-main">
