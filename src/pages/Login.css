@@ -207,3 +207,16 @@ p.link-reg {
 p.link-reg span {
 	color: #7d50ff;
 }
+
+@media screen and (max-width: 1000px) {
+	.right-login{
+		position: absolute;
+		width: 100vw;
+		top: 100vh;
+		left: 0;
+		right: 0;
+	}
+	.left-login{
+		width: 100vw;
+	}
+}
