@@ -28,7 +28,7 @@ const FillBtn = styled.button`
 `;
 
 const FilledBtn = (props) => {
-  return <FillBtn>{props.text}</FillBtn>;
+  return <FillBtn {...props}>{props.text}</FillBtn>;
 };
 
 export default FilledBtn;
