@@ -47,7 +47,7 @@ function Signup() {
 	const [value, setValue] = useState("@");
 	const [password, setPassword] = useState("");
 	const [logo, setLogo] = useState(
-		<FaInstagram fontSize="1.5rem" color="#fcfcfc" />
+		<FaInstagram fontSize="1.5rem" color="#6E7191" />
 	);
 	const [banner, setBanner] = useState({
 		data: "",
@@ -61,8 +61,8 @@ function Signup() {
 
 	const handleNext = (e) => {
 		setCurrent((prev) => {
-			if (prev === 3) {
-				return axios
+			if (prev >= 3) {
+				axios
 					.post("URL")
 					.then((res) => {
 						if (res.status === 200) {
@@ -80,6 +80,7 @@ function Signup() {
 							isOk: false,
 						});
 					});
+					return prev;
 			}
 			return prev + 1;
 		});
@@ -135,7 +136,7 @@ function Signup() {
 							place="Name of Club"
 							value={name}
 							logo={
-								<CgNametag fontSize="1.5rem" color="#fcfcfc" />
+								<CgNametag fontSize="1.5rem" color="#6E7191" />
 							}
 							onChange={(e) => setName(e.target.value)}
 						/>
@@ -144,7 +145,7 @@ function Signup() {
 							type="text"
 							place="Phone Number"
 							value={phone}
-							logo={<BsPhone fontSize="1.5rem" color="#fcfcfc" />}
+							logo={<BsPhone fontSize="1.5rem" color="#6E7191" />}
 							onChange={(e) => setPhone(e.target.value)}
 						/>
 					) : (
@@ -155,7 +156,7 @@ function Signup() {
 							logo={
 								<HiOutlineMail
 									fontSize="1.5rem"
-									color="#fcfcfc"
+									color="#6E7191"
 								/>
 							}
 							onChange={(e) => setEmail(e.target.value)}
@@ -199,7 +200,7 @@ function Signup() {
 										setLogo(
 											<FaInstagram
 												fontSize="1.5rem"
-												color="#fcfcfc"
+												color="#6E7191"
 											/>
 										);
 									}}
@@ -217,7 +218,7 @@ function Signup() {
 										setLogo(
 											<FaFacebook
 												fontSize="1.5rem"
-												color="#fcfcfc"
+												color="#6E7191"
 											/>
 										);
 									}}
@@ -235,7 +236,7 @@ function Signup() {
 										setLogo(
 											<FaTwitter
 												fontSize="1.5rem"
-												color="#fcfcfc"
+												color="#6E7191"
 											/>
 										);
 									}}
@@ -253,7 +254,7 @@ function Signup() {
 										setLogo(
 											<FaLinkedinIn
 												fontSize="1.5rem"
-												color="#fcfcfc"
+												color="#6E7191"
 											/>
 										);
 									}}
@@ -271,7 +272,7 @@ function Signup() {
 										setLogo(
 											<FaMediumM
 												fontSize="1.5rem"
-												color="#fcfcfc"
+												color="#6E7191"
 											/>
 										);
 									}}
@@ -300,7 +301,7 @@ function Signup() {
 							logo={
 								<AiOutlineEye
 									fontSize="1.5rem"
-									color="#fcfcfc"
+									color="#6E7191"
 								/>
 							}
 							onChange={(e) => setPassword(e.target.value)}
