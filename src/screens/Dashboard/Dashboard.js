@@ -5,6 +5,11 @@ import PartnerBanner from "./assets/partner.svg";
 import UpcomingIcon from "./assets/UpcomingIcon.png";
 import GreyIcon from "./assets/GreyIcon.png";
 import Notif from "./Notif";
+import {AiOutlineCalendar} from 'react-icons/ai';
+import {FaRupeeSign} from 'react-icons/fa';
+import calendar from "./assets/calendar.svg";
+import rupee from "./assets/rupee.svg";
+import like from "./assets/like.svg";
 
 function Dashboard() {
   return (
@@ -16,7 +21,7 @@ function Dashboard() {
         <div className="middle-dash">
           <div className="middle-top">
             <img src={PartnerBanner} alt="Partner" className="banner"></img>
-            </div>
+          </div>
           <div className="middle-mid">
             <h3 className="title">Upcoming Events</h3>
 
@@ -26,9 +31,18 @@ function Dashboard() {
                 <img src={UpcomingIcon} alt="upcoming-event" className="upcoming-icon"></img>
                 <div className="details">
                   <p>Event Name</p>
-                  <p>Jul 21 2021, 08:00PM</p>
-                  <p>Free</p>
-                  <p>120 Likes</p>
+                  <div className="sign-detail">
+                    <img src={calendar} alt="" className="detail-icon"/>
+                    <p>Jul 21 2021, 08:00PM</p>
+                  </div>
+                  <div className="sign-detail">
+                    <img src={rupee} alt="" className="detail-icon"/>
+                    <p>Free</p>
+                  </div>
+                  <div className="sign-detail">
+                    <img src={like} alt="" className="detail-icon"/>
+                    <p>120 Likes</p>
+                  </div>
                 </div>
               </div>
 
@@ -37,9 +51,18 @@ function Dashboard() {
                 <img src={UpcomingIcon} alt="upcoming-event" className="upcoming-icon"></img>
                 <div className="details">
                   <p>Event Name</p>
-                  <p>Jul 21 2021, 08:00PM</p>
-                  <p>Free</p>
-                  <p>120 Likes</p>
+                  <div className="sign-detail">
+                    <img src={calendar} alt="" className="detail-icon"/>
+                    <p>Jul 21 2021, 08:00PM</p>
+                  </div>
+                  <div className="sign-detail">
+                    <img src={rupee} alt="" className="detail-icon"/>
+                    <p>Free</p>
+                  </div>
+                  <div className="sign-detail">
+                    <img src={like} alt="" className="detail-icon"/>
+                    <p>120 Likes</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -51,9 +74,18 @@ function Dashboard() {
                 <img src={UpcomingIcon} alt="upcoming-event" className="upcoming-icon"></img>
                 <div className="details">
                   <p>Event Name</p>
-                  <p>Jul 21 2021, 08:00PM</p>
-                  <p>Free</p>
-                  <p>120 Likes</p>
+                  <div className="sign-detail">
+                    <img src={calendar} alt="" className="detail-icon"/>
+                    <p>Jul 21 2021, 08:00PM</p>
+                  </div>
+                  <div className="sign-detail">
+                    <img src={rupee} alt="" className="detail-icon"/>
+                    <p>Free</p>
+                  </div>
+                  <div className="sign-detail">
+                    <img src={like} alt="" className="detail-icon"/>
+                    <p>120 Likes</p>
+                  </div>
                 </div>
               </div>
 
@@ -62,9 +94,18 @@ function Dashboard() {
                 <img src={UpcomingIcon} alt="upcoming-event" className="upcoming-icon"></img>
                 <div className="details">
                   <p>Event Name</p>
-                  <p>Jul 21 2021, 08:00PM</p>
-                  <p>Free</p>
-                  <p>120 Likes</p>
+                  <div className="sign-detail">
+                    <img src={calendar} alt="" className="detail-icon"/>
+                    <p>Jul 21 2021, 08:00PM</p>
+                  </div>
+                  <div className="sign-detail">
+                    <img src={rupee} alt="" className="detail-icon"/>
+                    <p>Free</p>
+                  </div>
+                  <div className="sign-detail">
+                    <img src={like} alt="" className="detail-icon"/>
+                    <p>120 Likes</p>
+                  </div>
                 </div>
               </div>
             </div>

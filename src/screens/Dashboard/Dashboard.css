@@ -11,7 +11,7 @@
 }
 
 .middle-dash {
-  width: 55vw;
+  width: 50vw !important;
   height: 100vh;
   padding-left: 1%;
   padding-right: 1%;
@@ -72,7 +72,7 @@
   height: 100%;
 }
 .right-dash {
-  width: 20vw;
+  width: 25vw;
   height: 100vh;
   padding-left: 1%;
   padding-right: 4%;
@@ -150,6 +150,7 @@
 
 .details {
   padding-top: 3%;
+  flex-grow: 1;
 }
 .details p {
   margin: 0;
@@ -169,7 +170,11 @@
   height: 80px;
   margin: 2%;
 }
-.row {
+.row,
+.sign-detail {
   display: flex;
   flex-direction: row;
+}
+.detail-icon {
+  margin-right: 4%;
 }
