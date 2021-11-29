@@ -4,37 +4,45 @@ import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 
 const InputBx = styled(TextField)(() => ({
-	width: "17.5rem",
+	width: "280px",
+	height: "64px",
 	margin: "2% 0 4%",
-	letterSpacing: "0.075rem",
+	letterSpacing: "0.75px",
+	background: "#121212",
+	borderRadius: "16px",
+	"&:hover .MuiInputLabel-root": {
+		color: "#5F2EEA",
+	},
 	"& label.Mui-focused": {
-		color: "#5F2EEAFF",
+		color: "#5F2EEA",
 	},
 	"& .MuiInput-underline:after": {
 		borderBottomColor: "#fcfcfc",
 	},
 	"& .MuiOutlinedInput-root": {
 		"& fieldset": {
-			border: "2px solid #5F2EEA55",
+			border: "2px solid #121212",
 		},
 		"&:hover fieldset": {
-			borderColor: "#5F2EEAFF",
+			borderColor: "#5F2EEA",
 		},
 		"&.Mui-focused fieldset": {
-			borderColor: "#5F2EEAFF",
+			borderColor: "#5F2EEA",
 		},
 	},
 	"& .Mui-focused": {
-		color: "#5F2EEAFF",
+		color: "#5F2EEA",
 	},
 	"& .MuiInput-input": {
 		color: "#fcfcfc",
 	},
 	"& .MuiInputLabel-root": {
-		color: "#5F2EEAFF",
+		color: "#6E7191",
 	},
 	"& 	.MuiOutlinedInput-root": {
 		color: "#fcfcfc",
+		borderRadius: "16px",
+		height: "64px",
 	},
 }));
 

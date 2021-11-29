@@ -168,7 +168,9 @@
 	/* background-color: red; */
 	border-radius: 32px;
 	width: 60%;
-	height: 55%;
+	height: auto;
+	padding-bottom: 5%;
+	padding-top: 5%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;

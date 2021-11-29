@@ -24,6 +24,9 @@ function App() {
 				<Route exact path="/" component={Landing} />
 				<Route exact path="/register" component={Signup} />
 				<Route exact path="/login" component={Login} />
+				<Route exact path="/" component={Landing} />
+				<Route exact path="/register" component={Signup} />
+				<Route exact path="/login" component={Login} />
 				<Route exact path="/profile" component={EditProfile} />
 				<Route exact path="/all" component={AllEvents} />
 				<Route exact path="/new" component={NewEvent} />
