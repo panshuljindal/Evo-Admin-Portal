@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import "./Login.css";
 import axios from "axios";
 import Banner from "../components/Banner";
-
+import { useHistory } from "react-router";
 
 //Assets
+import { HiOutlineMail } from "react-icons/hi";
+import { AiOutlineEye } from "react-icons/ai";
 import Logo from "../assets/brand/logo.svg";
 import FilledBtn from "../components/FilledButton";
 import InputBox from "../components/InputBox";
-import { HiOutlineMail } from "react-icons/hi";
-import { AiOutlineEye } from "react-icons/ai";
 
 function Login() {
 	const [email, setEmail] = useState("");
@@ -20,26 +20,24 @@ function Login() {
 		value: false,
 		isOk: false,
 	});
+	const history = useHistory();
 
 	const handleSubmit = () => {
-		axios
-			.post("{{BASE_URL}}/club/login", {
-				email: email,
-				password: password,
-			})
-			.then((res) => {
-				if (res.status === 200) {
-					localStorage.setItem("token", res.data.token);
-					setBanner({
-						data: res.data.message,
-						value: true,
-						isOk: true,
-					});
-				}
-			})
-			.catch((err) => {
-				setBanner({ data: err.message, value: true, isOk: false });
-			});
+		console.log(email + "    " + password);
+		axios.post("https://vit-events-app.herokuapp.com/club/login", {
+		  email: email,
+		  password: password
+		}).then(res => {
+		  if(res.status === 200){
+			localStorage.setItem("token", res.data.token);
+			setBanner({data: res.data.message, value: true, isOk: true});
+			setInterval(() => {
+				history.push('/dashboard');
+			}, 1500);
+		  }
+		}).catch(err => {
+			setBanner({data: err.response.data.message, value: true, isOk: false});
+		})
 	};
 	return (
 		<div className="main">
@@ -69,7 +67,6 @@ function Login() {
 						type="email"
 						place="Email"
 						value={email}
-						placeholder="Email"
 						logo={
 							<HiOutlineMail fontSize="1.5rem" color="#6E7191" />
 						}
@@ -80,13 +77,12 @@ function Login() {
 					<InputBox
 						type="password"
 						place="Password"
-						placeholder="Password"
 						value={password}
 						logo={
 							<AiOutlineEye fontSize="1.5rem" color="#6E7191" />
 						}
 						onChange={(e) => {
-							setPassword(e.target.password);
+							setPassword(e.target.value);
 						}}
 					/>
 					<br />

@@ -7,7 +7,7 @@ function AllEvents() {
 	return (
 		<div>
 			<div className="cont-dash">
-				<div className="left">{/* <Navbar /> */}</div>
+				<div className="left"><Navbar /></div>
 
 				<div className="middle-dash-events">
 					<h3 className="event-heading">All Events (04)</h3>

@@ -13,7 +13,7 @@ function Dashboard() {
 	return (
 		<div>
 			<div className="cont-dash">
-				<div className="left">{/* <Navbar /> */}</div>
+				<div className="left"><Navbar /></div>
 				<div className="middle-dash">
 					<div className="middle-top">
 						<img
