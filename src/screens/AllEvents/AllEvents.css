@@ -1,28 +1,61 @@
-.middle-dash {
-	width: 100%;
-	margin: 0;
-	padding: 0;
-	height: 100%;
+.middle-dash-events {
+  width: 90%;
+  height: 100%;
+  margin-left: 1%;
 }
 .row {
-	display: flex;
-	flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 .eventcard {
-	background: #181818;
-	border-radius: 32px;
-	padding: 2%;
-	margin: 2%;
+  background: #181818;
+  border-radius: 32px;
+  padding: 2%;
+  margin: 1%;
+  overflow: hidden;
+  width: 40%;
 }
 .info {
-	float: left;
-	width: 40%;
+  float: left;
+  width: 35%;
+  margin-top: 3%;
+  margin-left: 3%;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
-.image {
-	float: right;
-	width: 60%;
-	margin-top: 2%;
+.event-poster {
+  float: right;
+  height: 200px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding-left: 5%;
+  padding-right: 5%;
+  margin-top: 2%;
+  border-radius: 10px;
+}
+.poster {
+  border-radius: 16px;
 }
 p {
-	font-size: 12px;
+  font-size: 12px;
+}
+.event-heading {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  letter-spacing: 0.02em;
+  color: #f7f7fc;
+  margin-left: 3%;
+}
+.info h4 {
+  margin: 0;
+  font-size: 21px;
+}
+.sign-detail {
+  color: #6b657c;
 }
