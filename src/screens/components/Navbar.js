@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import { useLocation } from "react-router-dom";
 import "./Navbar.css";
 import { ReactComponent as DashIcon } from "./icons/dash-icon.svg";
 import { ReactComponent as EditIcon } from "./icons/edit.svg";
@@ -18,7 +17,10 @@ class Navbar extends Component {
 		super(props);
 		this.state = {};
 	}
-
+	handleExit(){
+		localStorage.setItem("token", null);
+		window.location.href = "/login"
+	}
 	render() {
 		return (
 			<div className="left-nav">
@@ -111,7 +113,7 @@ class Navbar extends Component {
 							</ul>
 						</div>
 					</div>
-					<div className="nav-out">Sign Out</div>
+					<div className="nav-out" onClick={this.handleExit} >Sign Out</div>
 				</div>
 			</div>
 		);

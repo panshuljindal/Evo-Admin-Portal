@@ -24,6 +24,7 @@ import { CgNametag } from "react-icons/cg";
 import { HiOutlineMail } from "react-icons/hi";
 import { BsPhone } from "react-icons/bs";
 import axios from "axios";
+import { useHistory } from "react-router";
 
 const NewSelect = styled(Select)(() => ({
 	color: "white",
@@ -54,7 +55,7 @@ function Signup() {
 		value: false,
 		isOk: false,
 	});
-
+	const history = useHistory();
 	const handleChange = (event) => {
 		setType(event.target.value);
 	};
@@ -63,19 +64,34 @@ function Signup() {
 		setCurrent((prev) => {
 			if (prev >= 3) {
 				axios
-					.post("URL")
+					.post("https://vit-events-app.herokuapp.com/club/signup", {
+						"email": email,
+						"password": password,
+						"name": name,
+						"clubType": "Technical",
+						"linkedIn": "sample.linkedin.com",
+						"instagram": "sample.ig.com",
+						"medium": "medium.com",
+						"youtube": "yt.com",
+						"twitter": "twitter.com",
+						[social]: value
+					})
 					.then((res) => {
 						if (res.status === 200) {
+							localStorage.setItem("token", res.data["auth-token"]);
 							setBanner({
-								data: res.data.message,
+								data: "Registered Successfully",
 								value: true,
 								isOk: true,
 							});
+							setInterval(() => {
+								history.push('/dashboard');
+							}, 1500)
 						}
 					})
 					.catch((err) => {
 						setBanner({
-							data: err.message,
+							data: err.response.data.message,
 							value: true,
 							isOk: false,
 						});
