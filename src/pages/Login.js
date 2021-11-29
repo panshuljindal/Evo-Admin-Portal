@@ -12,9 +12,13 @@ import FilledBtn from "../components/FilledButton";
 import InputBox from "../components/InputBox";
 
 function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [banner, setBanner] = useState({data: "", value: false, isOk: false});
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const [banner, setBanner] = useState({
+		data: "",
+		value: false,
+		isOk: false,
+	});
 
   const handleSubmit = () => {
       axios.post("https://vit-events-app.herokuapp.com/club/login", {

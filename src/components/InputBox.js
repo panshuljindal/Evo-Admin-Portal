@@ -1,45 +1,46 @@
 import React from "react";
 import styled from "@mui/system/styled";
 import TextField from "@mui/material/TextField";
-import InputAdornment from '@mui/material/InputAdornment';
+import InputAdornment from "@mui/material/InputAdornment";
 
 const InputBx = styled(TextField)(() => ({
-    width: "17.5rem",
-    margin: '2% 0 4%',
-    letterSpacing: '0.075rem',
-    '& label.Mui-focused': {
-      color: '#5F2EEAFF',
-    },
-    '& .MuiInput-underline:after': {
-      borderBottomColor: '#fcfcfc',
-    },
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        border: '2px solid #5F2EEA55'
-      },
-      '&:hover fieldset': {
-        borderColor: '#5F2EEAFF',
-      },
-      '&.Mui-focused fieldset': {
-        borderColor: '#5F2EEAFF',
-      },
-    },
-    '& .Mui-focused': {
-      color: '#5F2EEAFF'
-    },
-    '& .MuiInput-input': {
-      color: '#fcfcfc'
-    },
-    '& .MuiInputLabel-root': {
-      color: '#5F2EEAFF'
-    },
-    '& 	.MuiOutlinedInput-root': {
-      color: '#fcfcfc'
-    },
-    '@media screen and (max-width: 588px)': {
-      width: "60%"
-    }
-}))
+	width: "17.5rem",
+	margin: "2% 0 4%",
+	borderRadius: '16px',
+	letterSpacing: "0.075rem",
+	"& label.Mui-focused": {
+		color: "#5F2EEAFF",
+	},
+	"& .MuiInput-underline:after": {
+		borderBottomColor: "#fcfcfc",
+	},
+	"& .MuiOutlinedInput-root": {
+		"& fieldset": {
+			border: "2px solid #5F2EEA55",
+		},
+		"&:hover fieldset": {
+			borderColor: "#5F2EEAFF",
+		},
+		"&.Mui-focused fieldset": {
+			borderColor: "#5F2EEAFF",
+		},
+	},
+	"& .Mui-focused": {
+		color: "#5F2EEAFF",
+	},
+	"& .MuiInput-input": {
+		color: "#fcfcfc",
+	},
+	"& .MuiInputLabel-root": {
+		color: "#5F2EEAFF",
+	},
+	"& 	.MuiOutlinedInput-root": {
+		color: "#fcfcfc",
+	},
+	'@media screen and (max-width: 588px)': {
+		width: "60%"
+	}
+}));
 
 // width: 280px;
 //   height: 56px;
@@ -76,13 +77,21 @@ const InputBx = styled(TextField)(() => ({
 //   }
 
 const InputBox = (props) => {
-  return <InputBx type={props.type} label={props.place} variant="outlined" InputProps={{
-    startAdornment: (
-      <InputAdornment position="start">
-        {props.logo}
-      </InputAdornment>
-    )
-  }} {...props}></InputBx>;
+	return (
+		<InputBx
+			type={props.type}
+			label={props.place}
+			variant="outlined"
+			InputProps={{
+				startAdornment: (
+					<InputAdornment position="start">
+						{props.logo}
+					</InputAdornment>
+				),
+			}}
+			{...props}
+		></InputBx>
+	);
 };
 
 export default InputBox;

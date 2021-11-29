@@ -209,17 +209,17 @@ p.link-reg span {
 }
 
 @media screen and (max-width: 1000px) {
-	.right-login{
+	.right-login {
 		position: absolute;
 		width: 100vw;
 		top: 100vh;
 		left: 0;
 		right: 0;
 	}
-	.left-login{
+	.left-login {
 		width: 100vw;
 	}
-	.left-signup{
+	.left-signup {
 		width: 100vw;
 	}
 }

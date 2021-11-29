@@ -9,7 +9,6 @@ import Settings from "./screens/Settings/Settings";
 import AllEvents from "./screens/AllEvents/AllEvents";
 import NewEvent from "./screens/NewEvent/NewEvent";
 import EditProfile from "./screens/EditProfile/EditProfile";
-import Navbar from "./screens/components/Navbar";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 
@@ -37,11 +36,7 @@ function App() {
     //     timeout={10000} //3 secs
     //   /> */}
     //     <Switch>
-
-    //     </Switch>
-    //   </div>
-    // </BrowserRouter>
-  );
+	);
 }
 
 export default App;
