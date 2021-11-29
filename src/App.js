@@ -14,35 +14,24 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 
 function App() {
-  return (
-      <BrowserRouter>
-      <Switch>
-        <Route exact path="/" component={Landing} />
-        <Route exact path="/register" component={Signup} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/profile" component={EditProfile} />
-        <Route exact path="/all" component={AllEvents} />
-        <Route exact path="/new" component={NewEvent} />
-        <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/settings" component={Settings} />
-      </Switch>
-    </BrowserRouter>
-    // <BrowserRouter>
-    //   <div>
-    //   {/* <Loader
-    //     type="Oval"
-    //     color="#5F2EEA"
-    //     height={50}
-    //     width={50}
-    //     timeout={10000} //3 secs
-    //   /> */}
-    //     <Navbar />
-    //     <Switch>
+	return (
+		//Main View
 
-    //     </Switch>
-    //   </div>
-    // </BrowserRouter>
-  );
+		//Dashboard View
+		<BrowserRouter>
+			<Navbar />
+			<Switch>
+				<Route exact path="/" component={Landing} />
+				<Route exact path="/register" component={Signup} />
+				<Route exact path="/login" component={Login} />
+				<Route exact path="/profile" component={EditProfile} />
+				<Route exact path="/all" component={AllEvents} />
+				<Route exact path="/new" component={NewEvent} />
+				<Route exact path="/dashboard" component={Dashboard} />
+				<Route exact path="/settings" component={Settings} />
+			</Switch>
+		</BrowserRouter>
+	);
 }
 
 export default App;

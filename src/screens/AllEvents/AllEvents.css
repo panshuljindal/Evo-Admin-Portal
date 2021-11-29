@@ -1,28 +1,28 @@
 .middle-dash {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	height: 100%;
 }
 .row {
-  display: flex;
-  flex-direction: row;
+	display: flex;
+	flex-direction: row;
 }
 .eventcard {
-  background: #181818;
-  border-radius: 32px;
-  padding: 2%;
-  margin: 2%;
+	background: #181818;
+	border-radius: 32px;
+	padding: 2%;
+	margin: 2%;
 }
 .info {
-  float: left;
-  width: 40%;
+	float: left;
+	width: 40%;
 }
 .image {
-  float: right;
-  width: 60%;
-  margin-top: 2%;
+	float: right;
+	width: 60%;
+	margin-top: 2%;
 }
 p {
-  font-size: 12px;
+	font-size: 12px;
 }

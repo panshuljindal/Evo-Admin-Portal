@@ -11,15 +11,15 @@
 	border: 2px solid green;
 }
 
-.middle-new .title{
-    font-weight: 600;
-font-size: 28px;
-line-height: 128.5%;
-/* identical to box height, or 36px */
+.middle-new .title {
+	font-weight: 600;
+	font-size: 28px;
+	line-height: 128.5%;
+	/* identical to box height, or 36px */
 
-letter-spacing: 0.02em;
+	letter-spacing: 0.02em;
 
-color: #F7F7FC;
+	color: #f7f7fc;
 }
 
 .right-new {
@@ -28,7 +28,7 @@ color: #F7F7FC;
 	padding-left: 1%;
 	padding-right: 4%;
 	display: flex;
-    flex-direction: column;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	/* background-color: blue; */
