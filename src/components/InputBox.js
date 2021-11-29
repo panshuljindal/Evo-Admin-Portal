@@ -35,6 +35,9 @@ const InputBx = styled(TextField)(() => ({
     },
     '& 	.MuiOutlinedInput-root': {
       color: '#fcfcfc'
+    },
+    '@media screen and (max-width: 588px)': {
+      width: "60%"
     }
 }))
 

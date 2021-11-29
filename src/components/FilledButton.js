@@ -25,6 +25,10 @@ const FillBtn = styled.button`
     height: 50px;
     font-size: 0.9em;
   }
+
+  @media screen and (max-width: 588px){
+    width: 60%;
+  }
 `;
 
 const FilledBtn = (props) => {

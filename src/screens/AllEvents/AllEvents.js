@@ -6,11 +6,11 @@ function AllEvents() {
   return (
     <div>
       <div className="cont-dash">
-        
+
         <div className="left">
-          {/* <Navbar /> */}
+          <Navbar />
         </div>
-        
+
         <div className="middle-dash">
           <h3>All Events (04)</h3>
 
@@ -39,7 +39,7 @@ function AllEvents() {
               </div>
             </div>
           </div>
-          
+
 
           <div className="row">
             <div className="eventcard">

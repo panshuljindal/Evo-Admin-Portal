@@ -20,6 +20,7 @@ class Navbar extends Component {
   }
 
   render() {
+    console.log("RENDER")
     return (
       <div className="left-nav">
         <div className="nav-main">

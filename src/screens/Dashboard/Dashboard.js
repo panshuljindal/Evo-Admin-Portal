@@ -16,7 +16,7 @@ function Dashboard() {
     <div>
       <div className="cont-dash">
         <div className="left">
-            {/* <Navbar /> */}
+            <Navbar />
         </div>
         <div className="middle-dash">
           <div className="middle-top">
@@ -122,7 +122,7 @@ function Dashboard() {
                   <p>Event Name</p>
                   <p>Views: 200</p>
                 </div>
-              </div>  
+              </div>
               <div className="bottom-card">
                 <p>02</p>
                 <img src={GreyIcon} alt="event" className="event-icon"></img>
@@ -130,7 +130,7 @@ function Dashboard() {
                   <p>Event Name</p>
                   <p>Views: 200</p>
                 </div>
-              </div>  
+              </div>
               <div className="bottom-card">
                 <p>03</p>
                 <img src={GreyIcon} alt="event" className="event-icon"></img>
@@ -138,7 +138,7 @@ function Dashboard() {
                   <p>Event Name</p>
                   <p>Views: 200</p>
                 </div>
-              </div>  
+              </div>
             </div>
 
             <div className="left-bottom">
@@ -150,7 +150,7 @@ function Dashboard() {
                   <p>Event Name</p>
                   <p>Likes: 200</p>
                 </div>
-              </div>  
+              </div>
               <div className="bottom-card">
                 <p>02</p>
                 <img src={GreyIcon} alt="event" className="event-icon"></img>
@@ -158,7 +158,7 @@ function Dashboard() {
                   <p>Event Name</p>
                   <p>Likes: 200</p>
                 </div>
-              </div>  
+              </div>
               <div className="bottom-card">
                 <p>03</p>
                 <img src={GreyIcon} alt="event" className="event-icon"></img>
@@ -166,7 +166,7 @@ function Dashboard() {
                   <p>Event Name</p>
                   <p>Likes: 200</p>
                 </div>
-              </div>  
+              </div>
             </div>
           </div>
         </div>

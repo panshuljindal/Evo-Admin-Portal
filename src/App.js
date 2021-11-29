@@ -15,7 +15,7 @@ import Loader from "react-loader-spinner";
 
 function App() {
   return (
-      <BrowserRouter>
+    <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Landing} />
         <Route exact path="/register" component={Signup} />
@@ -36,7 +36,6 @@ function App() {
     //     width={50}
     //     timeout={10000} //3 secs
     //   /> */}
-    //     <Navbar />
     //     <Switch>
 
     //     </Switch>
