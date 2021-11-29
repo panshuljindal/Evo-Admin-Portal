@@ -2,8 +2,6 @@ import React from "react";
 import styled from "@mui/system/styled";
 import TextField from "@mui/material/TextField";
 import InputAdornment from '@mui/material/InputAdornment';
-import { HiOutlineMail } from "react-icons/hi";
-import { AiOutlineEye } from "react-icons/ai";
 
 const InputBx = styled(TextField)(() => ({
     width: "17.5rem",
@@ -78,7 +76,7 @@ const InputBox = (props) => {
   return <InputBx type={props.type} label={props.place} variant="outlined" InputProps={{
     startAdornment: (
       <InputAdornment position="start">
-        {props.type === "password" ? <AiOutlineEye fontSize="1.5rem" color="#fcfcfc" /> : <HiOutlineMail fontSize="1.5rem" color="#fcfcfc" />}
+        {props.logo}
       </InputAdornment>
     )
   }} {...props}></InputBx>;

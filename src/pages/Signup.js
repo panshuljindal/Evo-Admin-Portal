@@ -5,99 +5,250 @@ import "./Login.css";
 import Logo from "../assets/brand/logo.svg";
 import FilledBtn from "../components/FilledButton";
 import InputBox from "../components/InputBox";
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Banner from "../components/Banner";
+import Select from "@mui/material/Select";
 import styled from "@mui/system/styled";
-
+import Avatar from "@mui/material/Avatar";
+import {
+  FaTwitter,
+  FaInstagram,
+  FaFacebook,
+  FaLinkedinIn,
+  FaMediumM,
+} from "react-icons/fa";
+import { AiOutlineEye } from "react-icons/ai";
+import { CgNametag } from "react-icons/cg";
+import { HiOutlineMail } from "react-icons/hi";
+import { BsPhone } from "react-icons/bs";
+import axios from "axios";
 
 const NewSelect = styled(Select)(() => ({
-  color: 'white',
-  outlineColor: 'white',
-  borderColor: 'white',
-  '& .MuiSelect-select': {
-    borderColor: "white",
-    outlineColor: "white",
-    color: 'white'
-  },
-  '& .MuiOutlinedInput-root': {
-    '& fieldset': {
-      border: '2px solid #5F2EEA55'
-    },
-    '&:hover fieldset': {
-      borderColor: '#5F2EEAFF',
-    },
-    '&.Mui-focused fieldset': {
-      borderColor: '#5F2EEAFF',
-    },
-  },
-  '& .MuiOutlinedInput-root': {
-    color: '#fcfcfc'
-  }
-}))
+  color: "white",
+  outlineColor: "white",
+  borderColor: "white",
+}));
+
+const NewAvatar = styled(Avatar)(() => ({
+  border: "1px solid transparent",
+  margin: "0.3rem 0.5rem",
+  backgroundColor: "#121212",
+}));
 
 function Signup() {
   const [current, setCurrent] = useState(1);
   const [name, setName] = useState("");
   const [type, setType] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [social, setSocial] = useState("Instagram");
+  const [value, setValue] = useState("@");
+  const [password, setPassword] = useState("");
+  const [logo, setLogo] = useState(
+    <FaInstagram fontSize="1.5rem" color="#fcfcfc" />
+  );
+  const [banner, setBanner] = useState({data: "", value: false, isOk: false});
 
   const handleChange = (event) => {
     setType(event.target.value);
   };
 
   const handleNext = (e) => {
-    setCurrent(prev => {
-      return prev !== 3 ? prev + 1 : prev;
-    })
+    setCurrent((prev) => {
+      if(prev === 3){
+        return axios.post("URL").then(res => {
+            if(res.status === 200){
+              setBanner({data: res.data.message, value: true, isOk: true});
+            }
+        }).catch(err => {
+          setBanner({data: err.message, value: true, isOk: false});
+        })
+      }
+      return prev + 1;
+    });
   };
 
   const handlePrevious = (e) => {
-    setCurrent(prev => {
-      return prev !== 1 ? prev-1 : prev;
-    })
-  }
+    setCurrent((prev) => {
+      return prev !== 1 ? prev - 1 : prev;
+    });
+  };
 
   return (
     <div className="main">
+      <Banner open={banner.value} setOpen={(value) => {setBanner(prev => {
+        return {
+          ...prev,
+          value: value
+        }
+      })}} text={banner.data} isOk={banner.isOk} />
       <div className="left-signup">
         <img src={Logo} className="logo-login" alt="Evo Logo"></img>
         <p className="logo-login-text">EVO</p>
         <p className="sub1">Welcome to the Future</p>
         <p className="step">Step {current}:</p>
-        <p className="stepName">{current === 1 ? "Details for the Profile " : (current === 2 ? "Contact Info" : "Authentication")}</p>
+        <p className="stepName">
+          {current === 1
+            ? "Details for the Profile "
+            : current === 2
+            ? "Contact Info"
+            : "Authentication"}
+        </p>
         <p className="stepDesc">
-          {current === 1 ? "These details will be used for your Club Profile" : (current === 2 ? "Help people contact you by adding necessary channels" : "This will act as credentials for your club to Login")}
+          {current === 1
+            ? "These details will be used for your Club Profile"
+            : current === 2
+            ? "Help people contact you by adding necessary channels"
+            : "This will act as credentials for your club to Login"}
         </p>
       </div>
       <div className="right-login">
         <div className="input-box">
           <h1 className="box-head">Basic Info</h1>
-          <InputBox type="text" place="Name of Club" value={name}  onChange={(e) => setName(e.target.value)} />
-          <FormControl style={{width: '17.5rem', marginBottom: '1rem'}}  fullWidth>
-            <InputLabel id="demo-simple-select-helper-label">Type</InputLabel>
-            <NewSelect
-              labelId="demo-simple-select-helper-label"
-              id="demo-simple-select-helper"
-              value={type}
-              label="Age"
-              onChange={handleChange}
+          {current === 1 ? (
+            <InputBox
+              type="text"
+              place="Name of Club"
+              value={name}
+              logo={<CgNametag fontSize="1.5rem" color="#fcfcfc" />}
+              onChange={(e) => setName(e.target.value)}
+            />
+          ) : current === 2 ? (
+            <InputBox
+              type="text"
+              place="Phone Number"
+              value={phone}
+              logo={<BsPhone fontSize="1.5rem" color="#fcfcfc" />}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+          ) : (
+            <InputBox
+              type="text"
+              place="Email"
+              value={email}
+              logo={<HiOutlineMail fontSize="1.5rem" color="#fcfcfc" />}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          )}
+          {current === 1 ? (
+            <FormControl
+              style={{ width: "17.5rem", marginBottom: "1rem" }}
+              fullWidth
             >
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
-              <MenuItem value={"T"}>Technical</MenuItem>
-              <MenuItem value={"C"}>Cultural</MenuItem>
-              <MenuItem value={"N"}>NGO</MenuItem>
-            </NewSelect>
+              <InputLabel id="demo-simple-select-helper-label">Type</InputLabel>
+              <NewSelect
+                labelId="demo-simple-select-helper-label"
+                id="demo-simple-select-helper"
+                value={type}
+                label="Age"
+                onChange={handleChange}
+              >
+                <MenuItem value="">
+                  <em>None</em>
+                </MenuItem>
+                <MenuItem value={"T"}>Technical</MenuItem>
+                <MenuItem value={"C"}>Cultural</MenuItem>
+                <MenuItem value={"N"}>NGO</MenuItem>
+              </NewSelect>
             </FormControl>
+          ) : current === 2 ? (
+            <div>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <NewAvatar
+                  onClick={() => {
+                    setSocial("Instagram");
+                    setLogo(<FaInstagram fontSize="1.5rem" color="#fcfcfc" />);
+                  }}
+                  style={
+                    social === "Instagram"
+                      ? { border: "1px solid #5F2EEA" }
+                      : {}
+                  }
+                >
+                  <FaInstagram />
+                </NewAvatar>
+                <NewAvatar
+                  onClick={() => {
+                    setSocial("Facebook");
+                    setLogo(<FaFacebook fontSize="1.5rem" color="#fcfcfc" />);
+                  }}
+                  style={
+                    social === "Facebook" ? { border: "1px solid #5F2EEA" } : {}
+                  }
+                >
+                  <FaFacebook />
+                </NewAvatar>
+                <NewAvatar
+                  onClick={() => {
+                    setSocial("Twitter");
+                    setLogo(<FaTwitter fontSize="1.5rem" color="#fcfcfc" />);
+                  }}
+                  style={
+                    social === "Twitter" ? { border: "1px solid #5F2EEA" } : {}
+                  }
+                >
+                  <FaTwitter />
+                </NewAvatar>
+                <NewAvatar
+                  onClick={() => {
+                    setSocial("Linkedin");
+                    setLogo(<FaLinkedinIn fontSize="1.5rem" color="#fcfcfc" />);
+                  }}
+                  style={
+                    social === "Linkedin" ? { border: "1px solid #5F2EEA" } : {}
+                  }
+                >
+                  <FaLinkedinIn />
+                </NewAvatar>
+                <NewAvatar
+                  onClick={() => {
+                    setSocial("Medium");
+                    setLogo(<FaMediumM fontSize="1.5rem" color="#fcfcfc" />);
+                  }}
+                  style={
+                    social === "Medium" ? { border: "1px solid #5F2EEA" } : {}
+                  }
+                >
+                  <FaMediumM />
+                </NewAvatar>
+              </div>
+              <InputBox
+                type="text"
+                place={social}
+                value={value}
+                logo={logo}
+                onChange={(e) => setValue(e.target.value)}
+              />
+            </div>
+          ) : (
+            <InputBox
+              type="password"
+              place="Password"
+              value={password}
+              logo={<AiOutlineEye fontSize="1.5rem" color="#fcfcfc" />}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          )}
           <br />
           <FilledBtn text="Next" onClick={handleNext}></FilledBtn>
         </div>
-        <Link to={current === 1 && "/login"} exact onClick={handlePrevious} >
+        <Link to={current === 1 && "/login"} exact onClick={handlePrevious}>
           <p className="link-reg">
-            {current === 1 ? "Already Registered?" : ""}<span>
-            {current === 1 ? "Login Now" : (current === 2 ? "Back to Basic Info" : "Back to Contact Info")}
+            {current === 1 ? "Already Registered? " : ""}
+            <span>
+              {current === 1
+                ? "Login Now"
+                : current === 2
+                ? "Back to Basic Info"
+                : "Back to Contact Info"}
             </span>
           </p>
         </Link>
