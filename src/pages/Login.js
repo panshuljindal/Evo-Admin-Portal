@@ -30,6 +30,7 @@ function Login() {
 		}).then(res => {
 		  if(res.status === 200){
 			localStorage.setItem("token", res.data.token);
+			localStorage.getItem("id", res.data.id);
 			setBanner({data: res.data.message, value: true, isOk: true});
 			setInterval(() => {
 				history.push('/dashboard');
