@@ -11,6 +11,7 @@ import { ReactComponent as FBIcon } from "./icons/fb.svg";
 import { ReactComponent as TWIcon } from "./icons/tw.svg";
 import { ReactComponent as LDIcon } from "./icons/ld.svg";
 import { ReactComponent as MEIcon } from "./icons/me.svg";
+import axios from "axios";
 
 class Navbar extends Component {
 	constructor(props) {
@@ -21,6 +22,24 @@ class Navbar extends Component {
 		localStorage.setItem("token", null);
 		window.location.href = "/login"
 	}
+	componentDidMount(){
+		const id = localStorage.getItem("id");
+		axios.get(`https://vit-events-app.herokuapp.com/club/get/${id}`).then(res => {
+			if(res.status === 200){
+				this.name = res.data.name;
+				this.length = res.data.events.length;
+				this.logo = res.data.logo;
+			} else {
+				this.name = "Sample VIT";
+				this.length = 12;
+				this.logo = "https://i.postimg.cc/XYf7J1cX/adg-logo.png";
+			}
+		}).catch(err => {
+			this.name = "Sample VIT";
+			this.length = 12;
+			this.logo = "https://i.postimg.cc/XYf7J1cX/adg-logo.png";
+		})
+	}
 	render() {
 		return (
 			<div className="left-nav">
@@ -29,7 +48,7 @@ class Navbar extends Component {
 						<NavLink to="/profile/" activeClassName="active">
 							<div className="logo-circle" title="Edit Profile">
 								<img
-									src="https://i.postimg.cc/XYf7J1cX/adg-logo.png"
+									src={this.logo}
 									alt="Logo"
 								></img>
 							</div>
@@ -44,9 +63,9 @@ class Navbar extends Component {
 								className="club-name"
 								title="Some Club VITTTTTTT"
 							>
-								SomeClub VITTTTTTT
+								{this.name}
 							</p>
-							<p className="event-count">Total Events: 12</p>
+							<p className="event-count">Total Events: {this.length}</p>
 						</div>
 					</div>
 					<div className="nav-menu">
