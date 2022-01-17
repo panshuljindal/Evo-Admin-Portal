@@ -8,23 +8,23 @@ import like from "./assets/like.svg";
 function Upcoming(props) {
 	return (
 		<div className="middle-card">
-			<p>01</p>
+			<p>{props.id}</p>
 			<div className="upcoming-icon">
 				<img src={UpcomingIcon} alt="event"></img>
 			</div>
 			<div className="details">
-				<p>Event Name</p>
+				<p>{props.name}</p>
 				<div className="sign-detail">
 					<img src={calendar} alt="" className="detail-icon" />
-					Jul 21 2021, 08:00PM
+					{props.date}
 				</div>
 				<div className="sign-detail">
 					<img src={rupee} alt="" className="detail-icon" />
-					Free
+					{props.isPaid ? props.cost : "Free"}
 				</div>
 				<div className="sign-detail">
 					<img src={like} alt="" className="detail-icon" />
-					120 Likes
+					{props.likes}
 				</div>
 			</div>
 		</div>

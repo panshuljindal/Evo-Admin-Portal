@@ -23,14 +23,13 @@ function Login() {
 	const history = useHistory();
 
 	const handleSubmit = () => {
-		console.log(email + "    " + password);
 		axios.post("https://vit-events-app.herokuapp.com/club/login", {
 		  email: email,
 		  password: password
 		}).then(res => {
 		  if(res.status === 200){
 			localStorage.setItem("token", res.data.token);
-			localStorage.getItem("id", res.data.id);
+			localStorage.setItem("id", res.data.id);
 			setBanner({data: res.data.message, value: true, isOk: true});
 			setInterval(() => {
 				history.push('/dashboard');

@@ -26,18 +26,24 @@ class Navbar extends Component {
 		const id = localStorage.getItem("id");
 		axios.get(`https://vit-events-app.herokuapp.com/club/get/${id}`).then(res => {
 			if(res.status === 200){
-				this.name = res.data.name;
-				this.length = res.data.events.length;
-				this.logo = res.data.logo;
+				this.setState({
+					name: res.data.name,
+					length: res.data.events.length,
+					logo: res.data.logo
+				})
 			} else {
-				this.name = "Sample VIT";
-				this.length = 12;
-				this.logo = "https://i.postimg.cc/XYf7J1cX/adg-logo.png";
+				this.setState({
+					name: "Sample VIT",
+					length: 12,
+					logo: "https://i.postimg.cc/XYf7J1cX/adg-logo.png"
+				})
 			}
 		}).catch(err => {
-			this.name = "Sample VIT";
-			this.length = 12;
-			this.logo = "https://i.postimg.cc/XYf7J1cX/adg-logo.png";
+			this.setState({
+				name: "Sample VIT",
+				length: 12,
+				logo: "https://i.postimg.cc/XYf7J1cX/adg-logo.png"
+			})
 		})
 	}
 	render() {
@@ -48,7 +54,7 @@ class Navbar extends Component {
 						<NavLink to="/profile/" activeClassName="active">
 							<div className="logo-circle" title="Edit Profile">
 								<img
-									src={this.logo}
+									src={this.state.logo}
 									alt="Logo"
 								></img>
 							</div>
@@ -63,9 +69,9 @@ class Navbar extends Component {
 								className="club-name"
 								title="Some Club VITTTTTTT"
 							>
-								{this.name}
+								{this.state.name}
 							</p>
-							<p className="event-count">Total Events: {this.length}</p>
+							<p className="event-count">Total Events: {this.state.length}</p>
 						</div>
 					</div>
 					<div className="nav-menu">

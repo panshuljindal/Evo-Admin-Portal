@@ -3,13 +3,26 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import PartnerBanner from "./assets/partner.svg";
 import Notif from "./Notif";
-import { AiOutlineCalendar } from "react-icons/ai";
-import { FaRupeeSign } from "react-icons/fa";
 import Upcoming from "./Upcoming";
 import Liked from "./Liked";
 import Viewed from "./Viewed";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function Dashboard() {
+	const [events, setEvents] = useState([]);
+	useEffect(() => {
+		axios.get(`https://vit-events-app.herokuapp.com/events/club/${localStorage.getItem('id')}?type=all`, {
+			headers: {
+				'auth-token': localStorage.getItem('token')
+			}
+		}).then(res => {
+			console.log(res.data)
+			setEvents(res.data.data);
+		}).catch(err => {
+			console.log(err);
+		})
+	}, [])
 	return (
 		<div>
 			<div className="cont-dash">
@@ -25,10 +38,11 @@ function Dashboard() {
 					<div className="middle-mid">
 						<h3 className="title">Upcoming Events</h3>
 						<div className="row">
-							<Upcoming />
-							<Upcoming />
-							<Upcoming />
-							<Upcoming />
+							{events.map((i, ind) => {
+								return (
+									<Upcoming key={ind} id={ind} name={i.name} poster={i.poster} isPaid={i.isPaid} cost={i.eventCost} date={new Date(i.timestamp).toDateString()} />
+								)
+							})}
 						</div>
 					</div>
 
