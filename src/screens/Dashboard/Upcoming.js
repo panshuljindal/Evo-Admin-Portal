@@ -1,6 +1,6 @@
 import React from "react";
 import "./Dashboard.css";
-import UpcomingIcon from "./assets/UpcomingIcon.png";
+// import UpcomingIcon from "./assets/UpcomingIcon.png";
 import calendar from "./assets/calendar.svg";
 import rupee from "./assets/rupee.svg";
 import like from "./assets/like.svg";
@@ -10,7 +10,7 @@ function Upcoming(props) {
 		<div className="middle-card">
 			<p>{props.id}</p>
 			<div className="upcoming-icon">
-				<img src={UpcomingIcon} alt="event"></img>
+				{/* <img src={UpcomingIcon} alt="event"></img> */}
 			</div>
 			<div className="details">
 				<p>{props.name}</p>
