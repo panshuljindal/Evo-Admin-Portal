@@ -39,15 +39,29 @@ const ChipActual = styled(Chip)(() => ({
   margin: "0.75rem 0"
 }));
 
+const ChipBackground = styled(Chip)(()=> ({
+  background:"#5F2EEA",
+  margin: "0.75rem 0",
+  color:"white",
+  "&:hover": {
+    background:"#5F2EEA",
+  }
+}))
+
 function NewEvent() {
   const [date, setDate] = useState(null);
   const [time, setTime] = useState(null);
+  const [tags,setTags] = useState({Hackathon:true,Riviera:false,Gravitas:false,Workshop:false,NGO:false,Cultural:false})
   const [formValues, setFormValues] = useState({
     title: "",
     body: "",
     image: null,
-    data: "",
+    data: ""
   });
+  const chips = ["Hackathon","Cultural","Riviera","Gravitas","NGO","Workshop"];
+  const handleClick = (name) => {
+    setTags({...tags,[name]:!tags[name]})
+  }
 
   return (
     <div>
@@ -89,13 +103,12 @@ function NewEvent() {
         </div>
         <div className="right-new">
           <FileUpload formValues={formValues} setFormValues={setFormValues} />
-          <Stack direction="row" spacing={1}>
-            <ChipActual label="Hackathons" variant="outlined" />
-            <ChipActual label="Workshops" variant="outlined" />
-            <ChipActual label="NGO" variant="outlined" />
-            <ChipActual label="Gravitas" variant="outlined" />
-            <ChipActual label="Riviera" variant="outlined" />
-            <ChipActual label="Cultural" variant="outlined" />
+          <Stack direction="row" spacing={1} style={{display:"flex",alignItems:"center"}}>
+            {chips.map(chip=>(
+            tags[chip] !== true ? 
+            <ChipActual label={chip} variant="outlined" onClick={()=>handleClick(chip)} /> :
+            <ChipBackground label={chip} onClick={()=>handleClick(chip)} />
+            ))}
           </Stack>
         </div>
       </div>
