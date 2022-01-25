@@ -43,6 +43,7 @@ const ChipBackground = styled(Chip)(()=> ({
   background:"#5F2EEA",
   margin: "0.75rem 0",
   color:"white",
+  border: "1px solid #5F2EEA",
   "&:hover": {
     background:"#5F2EEA",
   }
