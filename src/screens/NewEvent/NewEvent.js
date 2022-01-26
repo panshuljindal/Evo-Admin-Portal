@@ -78,7 +78,7 @@ function NewEvent() {
             minRows={5}
             placeholder="Event Description"
           />
-          <InputBox type="date" place="Date of the Event" value={date} onChange={(newValue)} />
+          <InputBox type="date" place="Date of the Event" value={date} onChange={(newValue) => setDate(newValue)} />
           {/* <LocalizationProvider dateAdapter={DateAdapter}>
             <DatePicker
               label="Date of Event"
@@ -97,7 +97,7 @@ function NewEvent() {
               renderInput={(params) => <TextField {...params} />}
             />
           </LocalizationProvider> */}
-          <InputBox type="time" place="Time Duration" />
+          <InputBox type="time" place="Time Duration" value={date} onChange={(newValue) => setTime(newValue)} />
           <InputBox type="number" place="Price" />
           <InputBox type="link" place="Registration Link" />
           <FilledButton text="Publish Event" />
