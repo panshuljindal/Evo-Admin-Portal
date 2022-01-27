@@ -39,15 +39,30 @@ const ChipActual = styled(Chip)(() => ({
   margin: "0.75rem 0"
 }));
 
+const ChipBackground = styled(Chip)(()=> ({
+  background:"#5F2EEA",
+  margin: "0.75rem 0",
+  color:"white",
+  border: "1px solid #5F2EEA",
+  "&:hover": {
+    background:"#5F2EEA",
+  }
+}))
+
 function NewEvent() {
   const [date, setDate] = useState(null);
   const [time, setTime] = useState(null);
+  const [tags,setTags] = useState({Hackathon:true,Riviera:false,Gravitas:false,Workshop:false,NGO:false,Cultural:false})
   const [formValues, setFormValues] = useState({
     title: "",
     body: "",
     image: null,
-    data: "",
+    data: ""
   });
+  const chips = ["Hackathon","Cultural","Riviera","Gravitas","NGO","Workshop"];
+  const handleClick = (name) => {
+    setTags({...tags,[name]:!tags[name]})
+  }
 
   return (
     <div>
@@ -63,10 +78,10 @@ function NewEvent() {
             minRows={5}
             placeholder="Event Description"
           />
-          {/* <InputBox type="date" place="Date of the Event" /> */}
-          <LocalizationProvider dateAdapter={DateAdapter}>
+          <InputBox type="date" place="Date of the Event" value={date} onChange={(newValue) => setDate(newValue)} />
+          {/* <LocalizationProvider dateAdapter={DateAdapter}>
             <DatePicker
-              label="Basic example"
+              label="Date of Event"
               value={date}
               onChange={(newValue) => {
                 setDate(newValue);
@@ -74,28 +89,27 @@ function NewEvent() {
               renderInput={(params) => <TextField {...params} />}
             />
             <TimePicker
-              label="Basic example"
+              label="Time Duration"
               value={time}
               onChange={(newValue) => {
                 setTime(newValue);
               }}
               renderInput={(params) => <TextField {...params} />}
             />
-          </LocalizationProvider>
-          {/* <InputBox type="time" place="Time Duration" /> */}
+          </LocalizationProvider> */}
+          <InputBox type="time" place="Time Duration" value={date} onChange={(newValue) => setTime(newValue)} />
           <InputBox type="number" place="Price" />
           <InputBox type="link" place="Registration Link" />
           <FilledButton text="Publish Event" />
         </div>
         <div className="right-new">
           <FileUpload formValues={formValues} setFormValues={setFormValues} />
-          <Stack direction="row" spacing={1}>
-            <ChipActual label="Hackathons" variant="outlined" />
-            <ChipActual label="Workshops" variant="outlined" />
-            <ChipActual label="NGO" variant="outlined" />
-            <ChipActual label="Gravitas" variant="outlined" />
-            <ChipActual label="Riviera" variant="outlined" />
-            <ChipActual label="Cultural" variant="outlined" />
+          <Stack direction="row" spacing={1} style={{display:"flex",alignItems:"center"}}>
+            {chips.map(chip=>(
+            tags[chip] !== true ? 
+            <ChipActual label={chip} variant="outlined" onClick={()=>handleClick(chip)} /> :
+            <ChipBackground label={chip} onClick={()=>handleClick(chip)} />
+            ))}
           </Stack>
         </div>
       </div>

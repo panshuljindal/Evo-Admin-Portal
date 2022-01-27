@@ -45,7 +45,7 @@ function Signup() {
 	const [phone, setPhone] = useState("");
 	const [email, setEmail] = useState("");
 	const [social, setSocial] = useState("Instagram");
-	const [value, setValue] = useState("@");
+	const [value, setValue] = useState({Instagram:"",Facebook:"",Twitter:"",Linkedin:"",Medium:""});
 	const [password, setPassword] = useState("");
 	const [logo, setLogo] = useState(
 		<FaInstagram fontSize="1.5rem" color="#6E7191" />
@@ -59,7 +59,9 @@ function Signup() {
 	const handleChange = (event) => {
 		setType(event.target.value);
 	};
-
+	const handleSocials = (name,val) => {
+		setValue({...value,[name]:val})
+	}
 	const handleNext = (e) => {
 		setCurrent((prev) => {
 			if (prev >= 3) {
@@ -304,9 +306,9 @@ function Signup() {
 							<InputBox
 								type="text"
 								place={social}
-								value={value}
+								value={value[social]}
 								logo={logo}
-								onChange={(e) => setValue(e.target.value)}
+								onChange={(e) => handleSocials(social,e.target.value)}
 							/>
 						</div>
 					) : (
