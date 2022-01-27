@@ -11,6 +11,7 @@ import NewEvent from "./screens/NewEvent/NewEvent";
 import EditProfile from "./screens/EditProfile/EditProfile";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
+import { Redirect } from "react-router-dom";
 
 function App() {
   return (
@@ -19,11 +20,41 @@ function App() {
         <Route exact path="/" component={Landing} />
         <Route exact path="/register" component={Signup} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/profile" component={EditProfile} />
-        <Route exact path="/all" component={AllEvents} />
-        <Route exact path="/new" component={NewEvent} />
-        <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/settings" component={Settings} />
+        <Route exact path="/profile" component={() => {
+          const token = localStorage.getItem("token");
+          if(!token){
+            <Redirect to="/login" />
+          }
+          return <EditProfile />
+      }} />
+        <Route exact path="/all" component={() => {
+          const token = localStorage.getItem("token");
+          if(!token){
+            <Redirect to="/login" />
+          }
+          return <AllEvents />
+      }} />
+        <Route exact path="/new" component={() => {
+          const token = localStorage.getItem("token");
+          if(!token){
+            <Redirect to="/login" />
+          }
+          return <NewEvent />
+      }} />
+        <Route exact path="/dashboard" component={() => {
+          const token = localStorage.getItem("token");
+          if(!token){
+            <Redirect to="/login" />
+          }
+          return <Dashboard />
+      }} />
+        <Route exact path="/settings" component={() => {
+          const token = localStorage.getItem("token");
+          if(!token){
+            <Redirect to="/login" />
+          }
+          return <Settings />
+      }} />
       </Switch>
     </BrowserRouter>
     // <BrowserRouter>
