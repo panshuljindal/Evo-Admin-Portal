@@ -6,8 +6,8 @@
 .faq,
 .info,
 .privacy {
-  overflow-y: scroll;
-  overflow: auto;
+	overflow-y: scroll;
+	overflow: auto;
 }
 .partner h3,
 .events h3,
@@ -16,141 +16,141 @@
 .connect h3,
 .info h3,
 .privacy h3 {
-  font-weight: 600;
-  font-size: 1.5em;
-  line-height: 128.5%;
-  letter-spacing: 0.02em;
-  color: #f7f7fc;
+	font-weight: 600;
+	font-size: 1.5em;
+	line-height: 128.5%;
+	letter-spacing: 0.02em;
+	color: #f7f7fc;
 }
 .partner p {
-  font-weight: 500;
-  font-size: 1em;
-  line-height: 2em;
+	font-weight: 500;
+	font-size: 1em;
+	line-height: 2em;
 }
 
 .partner p ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 
 .partner p ul li::before {
-  content: "\2022";
-  color: #5f2eea;
-  font-weight: bold;
-  display: inline-block;
-  width: 1em;
-  /* margin-left: -2em;  */
+	content: "\2022";
+	color: #5f2eea;
+	font-weight: bold;
+	display: inline-block;
+	width: 1em;
+	/* margin-left: -2em;  */
 }
 
 .security ul,
 .connect ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
 }
 
 .security ul li,
 .connect ul li {
-  font-weight: 600;
-  font-size: 1em;
-  line-height: 1.6875em;
-  color: #ffffff;
-  padding-top: 2.5%;
-  padding-bottom: 2.5%;
-  border-bottom: 1px solid #202020;
-  cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+	font-weight: 600;
+	font-size: 1em;
+	line-height: 1.6875em;
+	color: #ffffff;
+	padding-top: 2.5%;
+	padding-bottom: 2.5%;
+	border-bottom: 1px solid #202020;
+	cursor: pointer;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 }
 
 .security ul li.red {
-  color: #ff295d;
+	color: #ff295d;
 }
 
 a {
-  text-decoration: none !important;
+	text-decoration: none !important;
 }
 
 .info .card-main {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 }
 
 .styles_faq-row-wrapper__3vA1D
-  .styles_row-body__1NvUo
-  .styles_faq-row__2YF3c
-  .styles_row-title__1YiiY {
-  font-weight: 600 !important;
-  font-size: 16px !important;
-  line-height: 27px !important;
+	.styles_row-body__1NvUo
+	.styles_faq-row__2YF3c
+	.styles_row-title__1YiiY {
+	font-weight: 600 !important;
+	font-size: 16px !important;
+	line-height: 27px !important;
 }
 
 .styles_faq-row-wrapper__3vA1D
-  .styles_row-body__1NvUo
-  .styles_faq-row__2YF3c
-  .styles_row-content__QOGZd
-  .styles_row-content-text__2sgAB {
-  font-size: 14px !important;
-  line-height: 200% !important;
-  letter-spacing: -0.02em !important;
-  color: #f7f7fc !important;
+	.styles_row-body__1NvUo
+	.styles_faq-row__2YF3c
+	.styles_row-content__QOGZd
+	.styles_row-content-text__2sgAB {
+	font-size: 14px !important;
+	line-height: 200% !important;
+	letter-spacing: -0.02em !important;
+	color: #f7f7fc !important;
 }
 
 .styles_faq-row-wrapper__3vA1D .styles_faq-row__2YF3c {
-  border-bottom: 1px solid #202020 !important;
+	border-bottom: 1px solid #202020 !important;
 }
 
 /* Manage Event */
 .manage-heading {
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 128.5%;
-  /* or 23px */
-  color: rgba(247, 247, 252, 0.5);
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 128.5%;
+	/* or 23px */
+	color: rgba(247, 247, 252, 0.5);
 
-  letter-spacing: 0.02em;
+	letter-spacing: 0.02em;
 }
 .manage-event {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 2%;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	margin: 2%;
 }
 .icon {
-  padding: 1%;
+	padding: 1%;
 }
 .event-details {
-  padding-left: 2%;
-  padding-right: 2%;
+	padding-left: 2%;
+	padding-right: 2%;
 }
 .event-name {
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  color: #ffffff;
-  padding: 0;
-  margin-bottom: 0;
-  margin-top: 0;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	display: flex;
+	align-items: center;
+	color: #ffffff;
+	padding: 0;
+	margin-bottom: 0;
+	margin-top: 0;
 }
 .event-date {
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  color: rgba(255, 255, 255, 0.8);
-  padding: 0;
-  margin-top: 0;
-  margin-bottom: 0;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	display: flex;
+	align-items: center;
+	color: rgba(255, 255, 255, 0.8);
+	padding: 0;
+	margin-top: 0;
+	margin-bottom: 0;
 }

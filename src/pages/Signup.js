@@ -45,7 +45,13 @@ function Signup() {
 	const [phone, setPhone] = useState("");
 	const [email, setEmail] = useState("");
 	const [social, setSocial] = useState("Instagram");
-	const [value, setValue] = useState({Instagram:"",Facebook:"",Twitter:"",Linkedin:"",Medium:""});
+	const [value, setValue] = useState({
+		Instagram: "",
+		Facebook: "",
+		Twitter: "",
+		Linkedin: "",
+		Medium: "",
+	});
 	const [password, setPassword] = useState("");
 	const [logo, setLogo] = useState(
 		<FaInstagram fontSize="1.5rem" color="#6E7191" />
@@ -59,36 +65,39 @@ function Signup() {
 	const handleChange = (event) => {
 		setType(event.target.value);
 	};
-	const handleSocials = (name,val) => {
-		setValue({...value,[name]:val})
-	}
+	const handleSocials = (name, val) => {
+		setValue({ ...value, [name]: val });
+	};
 	const handleNext = (e) => {
 		setCurrent((prev) => {
 			if (prev >= 3) {
 				axios
 					.post("https://vit-events-app.herokuapp.com/club/signup", {
-						"email": email,
-						"password": password,
-						"name": name,
-						"clubType": "Technical",
-						"linkedIn": "sample.linkedin.com",
-						"instagram": "sample.ig.com",
-						"medium": "medium.com",
-						"youtube": "yt.com",
-						"twitter": "twitter.com",
-						[social]: value
+						email: email,
+						password: password,
+						name: name,
+						clubType: "Technical",
+						linkedIn: "sample.linkedin.com",
+						instagram: "sample.ig.com",
+						medium: "medium.com",
+						youtube: "yt.com",
+						twitter: "twitter.com",
+						[social]: value,
 					})
 					.then((res) => {
 						if (res.status === 200) {
-							localStorage.setItem("token", res.data["auth-token"]);
+							localStorage.setItem(
+								"token",
+								res.data["auth-token"]
+							);
 							setBanner({
 								data: "Registered Successfully",
 								value: true,
 								isOk: true,
 							});
 							setInterval(() => {
-								history.push('/dashboard');
-							}, 1500)
+								history.push("/dashboard");
+							}, 1500);
 						}
 					})
 					.catch((err) => {
@@ -98,7 +107,7 @@ function Signup() {
 							isOk: false,
 						});
 					});
-					return prev;
+				return prev;
 			}
 			return prev + 1;
 		});
@@ -308,7 +317,9 @@ function Signup() {
 								place={social}
 								value={value[social]}
 								logo={logo}
-								onChange={(e) => handleSocials(social,e.target.value)}
+								onChange={(e) =>
+									handleSocials(social, e.target.value)
+								}
 							/>
 						</div>
 					) : (

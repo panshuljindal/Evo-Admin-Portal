@@ -36,7 +36,9 @@ class Settings extends Component {
 	render() {
 		return (
 			<div className="set-container">
-				<div className="left"><Navbar /></div>
+				<div className="left">
+					<Navbar />
+				</div>
 				<div className="middle-set">
 					<h3>Settings</h3>
 					<div className="box">

@@ -44,9 +44,9 @@ const InputBx = styled(TextField)(() => ({
 		borderRadius: "16px",
 		height: "64px",
 	},
-	'@media screen and (max-width: 588px)': {
-		width: "60%"
-	}
+	"@media screen and (max-width: 588px)": {
+		width: "60%",
+	},
 }));
 
 // width: 280px;

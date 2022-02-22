@@ -18,33 +18,36 @@ class Navbar extends Component {
 		super(props);
 		this.state = {};
 	}
-	handleExit(){
+	handleExit() {
 		localStorage.setItem("token", null);
-		window.location.href = "/login"
+		window.location.href = "/login";
 	}
-	componentDidMount(){
+	componentDidMount() {
 		const id = localStorage.getItem("id");
-		axios.get(`https://vit-events-app.herokuapp.com/club/get/${id}`).then(res => {
-			if(res.status === 200){
-				this.setState({
-					name: res.data.name,
-					length: res.data.events.length,
-					logo: res.data.logo
-				})
-			} else {
+		axios
+			.get(`https://vit-events-app.herokuapp.com/club/get/${id}`)
+			.then((res) => {
+				if (res.status === 200) {
+					this.setState({
+						name: res.data.name,
+						length: res.data.events.length,
+						logo: res.data.logo,
+					});
+				} else {
+					this.setState({
+						name: "Sample VIT",
+						length: 12,
+						logo: "https://i.postimg.cc/XYf7J1cX/adg-logo.png",
+					});
+				}
+			})
+			.catch((err) => {
 				this.setState({
 					name: "Sample VIT",
 					length: 12,
-					logo: "https://i.postimg.cc/XYf7J1cX/adg-logo.png"
-				})
-			}
-		}).catch(err => {
-			this.setState({
-				name: "Sample VIT",
-				length: 12,
-				logo: "https://i.postimg.cc/XYf7J1cX/adg-logo.png"
-			})
-		})
+					logo: "https://i.postimg.cc/XYf7J1cX/adg-logo.png",
+				});
+			});
 	}
 	render() {
 		return (
@@ -53,10 +56,7 @@ class Navbar extends Component {
 					<div className="nav-logo">
 						<NavLink to="/profile/" activeClassName="active">
 							<div className="logo-circle" title="Edit Profile">
-								<img
-									src={this.state.logo}
-									alt="Logo"
-								></img>
+								<img src={this.state.logo} alt="Logo"></img>
 							</div>
 						</NavLink>
 						<div className="logo-edit" title="Edit Profile">
@@ -71,7 +71,9 @@ class Navbar extends Component {
 							>
 								{this.state.name}
 							</p>
-							<p className="event-count">Total Events: {this.state.length}</p>
+							<p className="event-count">
+								Total Events: {this.state.length}
+							</p>
 						</div>
 					</div>
 					<div className="nav-menu">
@@ -138,7 +140,9 @@ class Navbar extends Component {
 							</ul>
 						</div>
 					</div>
-					<div className="nav-out" onClick={this.handleExit} >Sign Out</div>
+					<div className="nav-out" onClick={this.handleExit}>
+						Sign Out
+					</div>
 				</div>
 			</div>
 		);

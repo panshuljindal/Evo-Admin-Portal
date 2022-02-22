@@ -12,21 +12,31 @@ import axios from "axios";
 function Dashboard() {
 	const [events, setEvents] = useState([]);
 	useEffect(() => {
-		axios.get(`https://vit-events-app.herokuapp.com/events/club/${localStorage.getItem('id')}?type=all`, {
-			headers: {
-				'auth-token': localStorage.getItem('token')
-			}
-		}).then(res => {
-			console.log(res.data)
-			setEvents(res.data.data);
-		}).catch(err => {
-			console.log(err);
-		})
-	}, [])
+		axios
+			.get(
+				`https://vit-events-app.herokuapp.com/events/club/${localStorage.getItem(
+					"id"
+				)}?type=all`,
+				{
+					headers: {
+						"auth-token": localStorage.getItem("token"),
+					},
+				}
+			)
+			.then((res) => {
+				console.log(res.data);
+				setEvents(res.data.data);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	}, []);
 	return (
 		<div>
 			<div className="cont-dash">
-				<div className="left"><Navbar /></div>
+				<div className="left">
+					<Navbar />
+				</div>
 				<div className="middle-dash">
 					<div className="middle-top">
 						<img
@@ -40,8 +50,18 @@ function Dashboard() {
 						<div className="row">
 							{events.map((i, ind) => {
 								return (
-									<Upcoming key={ind} id={ind} name={i.name} poster={i.poster} isPaid={i.isPaid} cost={i.eventCost} date={new Date(i.timestamp).toDateString()} />
-								)
+									<Upcoming
+										key={ind}
+										id={ind}
+										name={i.name}
+										poster={i.poster}
+										isPaid={i.isPaid}
+										cost={i.eventCost}
+										date={new Date(
+											i.timestamp
+										).toDateString()}
+									/>
+								);
 							})}
 						</div>
 					</div>

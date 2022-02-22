@@ -20,15 +20,15 @@ const FillBtn = styled.button`
 	cursor: pointer;
 	box-shadow: none;
 
-  @media only screen and (max-width: 400px){
-    width: 250px;
-    height: 50px;
-    font-size: 0.9em;
-  }
+	@media only screen and (max-width: 400px) {
+		width: 250px;
+		height: 50px;
+		font-size: 0.9em;
+	}
 
-  @media screen and (max-width: 588px){
-    width: 60%;
-  }
+	@media screen and (max-width: 588px) {
+		width: 60%;
+	}
 `;
 
 const FilledBtn = (props) => {

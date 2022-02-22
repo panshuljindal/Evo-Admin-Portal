@@ -23,21 +23,32 @@ function Login() {
 	const history = useHistory();
 
 	const handleSubmit = () => {
-		axios.post("https://vit-events-app.herokuapp.com/club/login", {
-		  email: email,
-		  password: password
-		}).then(res => {
-		  if(res.status === 200){
-			localStorage.setItem("token", res.data.token);
-			localStorage.setItem("id", res.data.id);
-			setBanner({data: res.data.message, value: true, isOk: true});
-			setInterval(() => {
-				history.push('/dashboard');
-			}, 1500);
-		  }
-		}).catch(err => {
-			setBanner({data: err.response.data.message, value: true, isOk: false});
-		})
+		axios
+			.post("https://vit-events-app.herokuapp.com/club/login", {
+				email: email,
+				password: password,
+			})
+			.then((res) => {
+				if (res.status === 200) {
+					localStorage.setItem("token", res.data.token);
+					localStorage.setItem("id", res.data.id);
+					setBanner({
+						data: res.data.message,
+						value: true,
+						isOk: true,
+					});
+					setInterval(() => {
+						history.push("/dashboard");
+					}, 1500);
+				}
+			})
+			.catch((err) => {
+				setBanner({
+					data: err.response.data.message,
+					value: true,
+					isOk: false,
+				});
+			});
 	};
 	return (
 		<div className="main">

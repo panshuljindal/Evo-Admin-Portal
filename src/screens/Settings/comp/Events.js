@@ -6,14 +6,14 @@ function Events() {
 			<h3>Manage Events</h3>
 			<div className="active-event">
 				<p className="manage-heading">Active</p>
-				<ManageEvent/>
-				<ManageEvent/>
-            </div>
-            <div className="previous-event">
+				<ManageEvent />
+				<ManageEvent />
+			</div>
+			<div className="previous-event">
 				<p className="manage-heading">Previous Events</p>
-				<ManageEvent/>
-				<ManageEvent/>
-            </div>
+				<ManageEvent />
+				<ManageEvent />
+			</div>
 		</div>
 	);
 }

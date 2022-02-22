@@ -14,59 +14,79 @@ import Loader from "react-loader-spinner";
 import { Redirect } from "react-router-dom";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/" component={Landing} />
-        <Route exact path="/register" component={Signup} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/profile" component={() => {
-          const token = localStorage.getItem("token");
-          if(!token){
-            <Redirect to="/login" />
-          }
-          return <EditProfile />
-      }} />
-        <Route exact path="/all" component={() => {
-          const token = localStorage.getItem("token");
-          if(!token){
-            <Redirect to="/login" />
-          }
-          return <AllEvents />
-      }} />
-        <Route exact path="/new" component={() => {
-          const token = localStorage.getItem("token");
-          if(!token){
-            <Redirect to="/login" />
-          }
-          return <NewEvent />
-      }} />
-        <Route exact path="/dashboard" component={() => {
-          const token = localStorage.getItem("token");
-          if(!token){
-            <Redirect to="/login" />
-          }
-          return <Dashboard />
-      }} />
-        <Route exact path="/settings" component={() => {
-          const token = localStorage.getItem("token");
-          if(!token){
-            <Redirect to="/login" />
-          }
-          return <Settings />
-      }} />
-      </Switch>
-    </BrowserRouter>
-    // <BrowserRouter>
-    //   <div>
-    //   {/* <Loader
-    //     type="Oval"
-    //     color="#5F2EEA"
-    //     height={50}
-    //     width={50}
-    //     timeout={10000} //3 secs
-    //   /> */}
-    //     <Switch>
+	return (
+		<BrowserRouter>
+			<Switch>
+				<Route exact path="/" component={Landing} />
+				<Route exact path="/register" component={Signup} />
+				<Route exact path="/login" component={Login} />
+				<Route
+					exact
+					path="/profile"
+					component={() => {
+						const token = localStorage.getItem("token");
+						if (!token) {
+							<Redirect to="/login" />;
+						}
+						return <EditProfile />;
+					}}
+				/>
+				<Route
+					exact
+					path="/all"
+					component={() => {
+						const token = localStorage.getItem("token");
+						if (!token) {
+							<Redirect to="/login" />;
+						}
+						return <AllEvents />;
+					}}
+				/>
+				<Route
+					exact
+					path="/new"
+					component={() => {
+						const token = localStorage.getItem("token");
+						if (!token) {
+							<Redirect to="/login" />;
+						}
+						return <NewEvent />;
+					}}
+				/>
+				<Route
+					exact
+					path="/dashboard"
+					component={() => {
+						const token = localStorage.getItem("token");
+						if (!token) {
+							<Redirect to="/login" />;
+						}
+						return <Dashboard />;
+					}}
+				/>
+				<Route
+					exact
+					path="/settings"
+					component={() => {
+						const token = localStorage.getItem("token");
+						if (!token) {
+							<Redirect to="/login" />;
+						}
+						return <Settings />;
+					}}
+				/>
+			</Switch>
+		</BrowserRouter>
+		// <BrowserRouter>
+		//   <div>
+		//   {/* <Loader
+		//     type="Oval"
+		//     color="#5F2EEA"
+		//     height={50}
+		//     width={50}
+		//     timeout={10000} //3 secs
+		//   /> */}
+		//     <Switch>
 	);
 }
 
