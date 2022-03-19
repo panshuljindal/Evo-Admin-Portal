@@ -1,5 +1,5 @@
 import "./Dashboard.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import PartnerBanner from "./assets/partner.svg";
 import Notif from "./Notif";
@@ -11,6 +11,7 @@ import axios from "axios";
 
 function Dashboard() {
 	const [events, setEvents] = useState([]);
+	const history = useHistory();
 	useEffect(() => {
 		axios
 			.get(
@@ -43,6 +44,7 @@ function Dashboard() {
 							src={PartnerBanner}
 							alt="Partner"
 							className="banner"
+							onClick={() => {history.push("/settings")}}
 						></img>
 					</div>
 					<div className="middle-mid">

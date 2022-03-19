@@ -31,13 +31,13 @@ class Navbar extends Component {
 					this.setState({
 						name: res.data.name,
 						length: res.data.events.length,
-						logo: res.data.logo,
+						logo: res.data.logo !== undefined ? res.data.logo : null,
 					});
 				} else {
 					this.setState({
 						name: "Sample VIT",
 						length: 12,
-						logo: "https://i.postimg.cc/XYf7J1cX/adg-logo.png",
+						logo: null,
 					});
 				}
 			})
@@ -45,7 +45,7 @@ class Navbar extends Component {
 				this.setState({
 					name: "Sample VIT",
 					length: 12,
-					logo: "https://i.postimg.cc/XYf7J1cX/adg-logo.png",
+					logo: null,
 				});
 			});
 	}
@@ -55,9 +55,11 @@ class Navbar extends Component {
 				<div className="nav-main">
 					<div className="nav-logo">
 						<NavLink to="/profile/" activeClassName="active">
-							<div className="logo-circle" title="Edit Profile">
+							{this.state.logo !== null ? <div className="logo-circle" title="Edit Profile">
 								<img src={this.state.logo} alt="Logo"></img>
-							</div>
+							</div> : <div className="logo-circle" title="Edit Profile" style={{backgroundColor: "orange", display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '2rem'}} >
+									{this.state.name[0]}
+								</div>}
 						</NavLink>
 						<div className="logo-edit" title="Edit Profile">
 							<NavLink to="/profile/">

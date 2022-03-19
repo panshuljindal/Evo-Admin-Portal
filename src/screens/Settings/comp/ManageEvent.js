@@ -3,16 +3,16 @@ import "./style.css";
 import delicon from "./assets/delicon.svg";
 import statsicon from "./assets/statsicon.svg";
 import greyicon from "./assets/greyicon.png";
-function ManageEvent() {
+function ManageEvent({ name, date, image }) {
 	return (
 		<div className="manage-event">
-			<img src={greyicon}></img>
+			<img src={image ? image : greyicon}></img>
 			<div className="event-details">
-				<p className="event-name">Blender 3D Workshop</p>
-				<p className="event-date">12 Jun 2021</p>
+				<p className="event-name">{name ? name : "Blender 3D Workshop"}</p>
+				<p className="event-date">{date ? date : "29 February 2022"}</p>
 			</div>
-			<img src={statsicon} className="icon" alt="stats"></img>
-			<img src={delicon} className="icon" alt="delete"></img>
+			<img src={statsicon} className="icon" alt="stats" onClick={alert("Edit")}></img>
+			<img src={delicon} className="icon" alt="delete" onClick={alert("Delete")}></img>
 		</div>
 	);
 }
