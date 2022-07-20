@@ -99,7 +99,7 @@ function Signup() {
           })
           .catch((err) => {
             setBanner({
-              data: err.response.data.message,
+              data: err.data.message,
               value: true,
               isOk: false,
             });
