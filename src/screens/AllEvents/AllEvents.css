@@ -3,11 +3,13 @@
 	height: 100%;
 	margin-left: 4%;
 }
+
 .row {
 	display: flex;
 	flex-direction: row;
 	width: 100%;
 }
+
 .eventcard {
 	background: #181818;
 	border-radius: 32px;
@@ -16,6 +18,7 @@
 	overflow: hidden;
 	width: 40%;
 }
+
 .info {
 	float: left;
 	width: 35%;
@@ -24,6 +27,7 @@
 	overflow-y: hidden;
 	overflow-x: hidden;
 }
+
 .event-poster {
 	float: right;
 	height: 200px;
@@ -37,12 +41,15 @@
 	margin-top: 2%;
 	border-radius: 10px;
 }
+
 .poster {
 	border-radius: 16px;
 }
+
 p {
 	font-size: 12px;
 }
+
 .event-heading {
 	font-family: Poppins;
 	font-style: normal;
@@ -52,10 +59,22 @@ p {
 	color: #f7f7fc;
 	margin-left: 3%;
 }
+
+.empty-events {
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 28px;
+	letter-spacing: 0.02em;
+	color: #f7f7fc;
+	margin-left: 3%;
+}
+
 .info h4 {
 	margin: 0;
 	font-size: 21px;
 }
+
 .sign-detail {
 	color: #6b657c;
 }

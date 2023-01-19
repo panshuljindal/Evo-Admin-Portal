@@ -25,13 +25,18 @@ class Navbar extends Component {
 	componentDidMount() {
 		const id = localStorage.getItem("id");
 		axios
-			.get(`https://vit-events-app.herokuapp.com/club/get/${id}`)
+			.get(`https://evo-backend-production.up.railway.app/club/get/${id}`)
 			.then((res) => {
 				if (res.status === 200) {
 					this.setState({
 						name: res.data.name,
 						length: res.data.events.length,
 						logo: res.data.logo !== undefined ? res.data.logo : null,
+						instagram: res.data.instagram,
+						facebook: res.data.facebook,
+						twitter: res.data.twitter,
+						linkedin: res.data.linkedin,
+						medium: res.data.linkedin
 					});
 				} else {
 					this.setState({
@@ -57,9 +62,9 @@ class Navbar extends Component {
 						<NavLink to="/profile/" activeClassName="active">
 							{this.state.logo !== null ? <div className="logo-circle" title="Edit Profile">
 								<img src={this.state.logo} alt="Logo"></img>
-							</div> : <div className="logo-circle" title="Edit Profile" style={{backgroundColor: "orange", display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '2rem'}} >
-									{this.state.name[0]}
-								</div>}
+							</div> : <div className="logo-circle" title="Edit Profile" style={{ backgroundColor: "orange", display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '2rem' }} >
+								{this.state.name[0]}
+							</div>}
 						</NavLink>
 						<div className="logo-edit" title="Edit Profile">
 							<NavLink to="/profile/">
@@ -124,20 +129,20 @@ class Navbar extends Component {
 						<div className="links">
 							<ul>
 								<li title="Instagram">
-									<IGIcon /> &ensp; <p> @adgvnnnn</p>
+									<IGIcon /> &ensp; <p> {this.state.instagram}</p>
 								</li>
 								<li title="Facebook">
-									<FBIcon /> &ensp; <p> @adgvitnnnn</p>
+									<FBIcon /> &ensp; <p> {this.state.facebook}</p>
 								</li>
 								<li title="Twitter">
-									<TWIcon /> &ensp; <p> $adgnnnnn</p>
+									<TWIcon /> &ensp; <p> {this.state.twitter}</p>
 								</li>
 								<li title="Linkedin">
-									<LDIcon /> &ensp; <p> @adgvitnnnnnn</p>
+									<LDIcon /> &ensp; <p> {this.state.linkedin}</p>
 								</li>
 								<li title="Medium">
 									<MEIcon /> &ensp;{" "}
-									<p> @adgvit202111nnnnnnnnnnnnnnn</p>
+									<p> {this.state.medium}</p>
 								</li>
 							</ul>
 						</div>

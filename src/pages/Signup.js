@@ -73,7 +73,7 @@ function Signup() {
     setCurrent((prev) => {
       if (prev >= 3) {
         axios
-          .post("https://vit-events-app.herokuapp.com/club/signup", {
+          .post("https://evo-backend-production.up.railway.app/club/signup", {
             email: email,
             password: password,
             name: name,
@@ -141,15 +141,15 @@ function Signup() {
             {current === 1
               ? "Details for the Profile "
               : current === 2
-              ? "Contact Info"
-              : "Authentication"}
+                ? "Contact Info"
+                : "Authentication"}
           </p>
           <p className="stepDesc">
             {current === 1
               ? "These details will be used for your Club Profile"
               : current === 2
-              ? "Help people contact you by adding necessary channels"
-              : "This will act as credentials for your club to Login"}
+                ? "Help people contact you by adding necessary channels"
+                : "This will act as credentials for your club to Login"}
           </p>
         </div>
         <div className="right-login">
@@ -307,8 +307,8 @@ function Signup() {
                 {current === 1
                   ? "Login Now"
                   : current === 2
-                  ? "Back to Basic Info"
-                  : "Back to Contact Info"}
+                    ? "Back to Basic Info"
+                    : "Back to Contact Info"}
               </span>
             </p>
           </Link>
@@ -322,7 +322,7 @@ function Signup() {
         <div className="bar"></div>
         <p className="sub-init">This may take a few seconds</p>
       </div>
-	  }
+      }
     </Fragment>
   );
 }

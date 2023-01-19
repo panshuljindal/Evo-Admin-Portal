@@ -24,7 +24,7 @@ function Login() {
 
 	const handleSubmit = () => {
 		axios
-			.post("https://vit-events-app.herokuapp.com/club/login", {
+			.post("https://evo-backend-production.up.railway.app/club/login", {
 				email: email,
 				password: password,
 			})

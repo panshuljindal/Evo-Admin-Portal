@@ -2,12 +2,13 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import "./NewEvent.css";
 import InputBox from "../components/InputBox";
-import FilledButton from "../components/FilledButton";
+import FilledBtn from "../components/FilledButton";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
 import { styled } from "@mui/system";
 import FileUpload from "../components/FileUpload";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
+import axios from "axios";
 
 const TextArea = styled(TextareaAutosize)(() => ({
 	width: "84%",
@@ -46,6 +47,7 @@ const ChipBackground = styled(Chip)(() => ({
 
 function NewEvent() {
 	const [date, setDate] = useState(null);
+	const [registrationLink, setRegistrationLink] = useState(null);
 	const [time, setTime] = useState(null);
 	const [tags, setTags] = useState({
 		Hackathon: true,
@@ -72,6 +74,30 @@ function NewEvent() {
 	const handleClick = (name) => {
 		setTags({ ...tags, [name]: !tags[name] });
 	};
+	const handleSubmit = () => {
+		console.log("Button Pressed")
+		// const data = {
+		// 	name: formValues.title,
+		// 	info: formValues.data,
+		// 	poster: formValues.image,
+		// 	timstamp: date,
+		// 	duration: time,
+		// 	registrationLink: registrationLink
+
+		// };
+		// console.log(data)
+		// console.log(chips)
+		// axios
+		// 	.post("https://evo-backend-production.up.railway.app/events/create",
+		// 		{
+		// 			headers: {
+		// 				"auth-token": localStorage.getItem("token"),
+
+		// 			},
+
+		// 		}
+		// 	)
+	};
 
 	return (
 		<div>
@@ -93,24 +119,6 @@ function NewEvent() {
 						value={date}
 						onChange={(newValue) => setDate(newValue)}
 					/>
-					{/* <LocalizationProvider dateAdapter={DateAdapter}>
-            <DatePicker
-              label="Date of Event"
-              value={date}
-              onChange={(newValue) => {
-                setDate(newValue);
-              }}
-              renderInput={(params) => <TextField {...params} />}
-            />
-            <TimePicker
-              label="Time Duration"
-              value={time}
-              onChange={(newValue) => {
-                setTime(newValue);
-              }}
-              renderInput={(params) => <TextField {...params} />}
-            />
-          </LocalizationProvider> */}
 					<InputBox
 						type="time"
 						place="Time Duration"
@@ -118,8 +126,12 @@ function NewEvent() {
 						onChange={(newValue) => setTime(newValue)}
 					/>
 					<InputBox type="number" place="Price" />
-					<InputBox type="link" place="Registration Link" />
-					<FilledButton text="Publish Event" />
+					<InputBox
+						type="link"
+						place="Registration Link"
+						onChange={(newValue) => setRegistrationLink(newValue)}
+					/>
+					<FilledBtn text="Publish Event" onClick={handleSubmit} ></FilledBtn>
 				</div>
 				<div className="right-new">
 					<FileUpload

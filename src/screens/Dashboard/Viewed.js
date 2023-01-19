@@ -5,13 +5,13 @@ import "./Dashboard.css";
 function Viewed(props) {
 	return (
 		<div className="bottom-card">
-			<p>01</p>
+			<p>{props.id}</p>
 			<div className="event-icon">
 				{/* <img src={GreyIcon} alt="event"></img> */}
 			</div>
 			<div className="details">
-				<p className="big">Event Name</p>
-				<p className="small">Views: 200</p>
+				<p className="big">{props.name}</p>
+				<p className="small">Views: {props.views}</p>
 			</div>
 		</div>
 	);
