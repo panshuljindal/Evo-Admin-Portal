@@ -50,6 +50,16 @@ p {
 	font-size: 12px;
 }
 
+.edit-event {
+	background: #5f2eea;
+	border-radius: 10px;
+	border: none;
+	width: 200px;
+	height: 32px;
+	color: #f7f7fc;
+	margin-top: 10%;
+}
+
 .event-heading {
 	font-family: Poppins;
 	font-style: normal;

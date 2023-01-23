@@ -8,8 +8,12 @@ import axios from "axios";
 import { useEffect } from "react";
 
 function AllEvents() {
-	const [show, setShow] = useState(false);
+	const [show, setShow] = useState(true);
 	const [events, setEvents] = useState([]);
+	const toggleShow = () => {
+		console.log("Show Changed")
+		return setShow(!show)
+	}
 	useEffect(() => {
 		axios
 			.get(
@@ -57,11 +61,6 @@ function AllEvents() {
 						})
 
 						}
-					</div>
-					<div className="row">
-
-						<UpcomingEvent onClick={() => setShow(true)} />
-						<Modal onClose={() => setShow(true)} show={show} />
 					</div>
 				</div>
 			</div>

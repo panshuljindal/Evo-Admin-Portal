@@ -22,6 +22,7 @@ function UpcomingEvent(props) {
 			<div className="event-poster">
 				<img src={props.poster} alt="event poster" className="poster"></img>
 			</div>
+			<button className="edit-event">Edit Event Details</button>
 		</div>
 	);
 }
