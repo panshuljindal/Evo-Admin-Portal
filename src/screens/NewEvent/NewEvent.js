@@ -9,6 +9,7 @@ import FileUpload from "../components/FileUpload";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import axios from "axios";
+import Button from "@mui/material/Button"
 
 const TextArea = styled(TextareaAutosize)(() => ({
 	width: "84%",
@@ -75,7 +76,7 @@ function NewEvent() {
 		setTags({ ...tags, [name]: !tags[name] });
 	};
 	const handleSubmit = () => {
-		console.log("Button Pressed")
+		console.log("Button Pressed");
 		// const data = {
 		// 	name: formValues.title,
 		// 	info: formValues.data,
@@ -131,7 +132,7 @@ function NewEvent() {
 						place="Registration Link"
 						onChange={(newValue) => setRegistrationLink(newValue)}
 					/>
-					<FilledBtn text="Publish Event" onClick={handleSubmit} ></FilledBtn>
+					<Button className="filledButton" text="" onClick={handleSubmit} >Publish Event</Button>
 				</div>
 				<div className="right-new">
 					<FileUpload

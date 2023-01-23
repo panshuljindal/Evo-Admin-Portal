@@ -23,51 +23,50 @@ function AllEvents() {
 				}
 			)
 			.then((res) => {
-				// setEvents(res.data.upcomingEvents);
+				setEvents(res.data.upcomingEvents);
 			})
 			.catch((err) => {
 				console.log(err);
 			});
 	}, []);
-	if (events.length == 0) {
-		return (
-			<div>
-				<div className="cont-dash">
-					<div className="left">
-						<Navbar />
-					</div>
 
-					<div className="middle-dash-events">
-						<h3 className="empty-events">No Events Found</h3>
-					</div>
+	return (
+		<div>
+			<div className="cont-dash">
+				<div className="left">
+					<Navbar />
 				</div>
-			</div>);
-	} else {
-		return (
-			<div>
-				<div className="cont-dash">
-					<div className="left">
-						<Navbar />
+
+				<div className="middle-dash-events">
+					<h3 className="event-heading">All Events (0{events.length})</h3>
+					<div className="row">
+						{events.map((i, ind) => {
+
+							return (
+								<UpcomingEvent
+									name={i.name}
+									info={i.info}
+									date={new Date(
+										i.timestamp
+									).toDateString()}
+									price={i.eventCost + " Rs"}
+									poster={i.poster}
+									onClick={() => setShow(true)}
+								/>
+							)
+						})
+
+						}
 					</div>
+					<div className="row">
 
-					<div className="middle-dash-events">
-						<h3 className="event-heading">All Events (0{events.length})</h3>
-						<Modal />
-						<div className="row">
-							<UpcomingEvent onClick={() => setShow(true)} />
-							<Modal onClose={() => setShow(true)} show={show} />
-							<UpcomingEvent />
-						</div>
-
-						<div className="row">
-							<UpcomingEvent />
-							<UpcomingEvent />
-						</div>
+						<UpcomingEvent onClick={() => setShow(true)} />
+						<Modal onClose={() => setShow(true)} show={show} />
 					</div>
 				</div>
 			</div>
-		);
-	}
+		</div>
+	);
 }
 
 export default AllEvents;

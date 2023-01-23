@@ -10,7 +10,7 @@ function Upcoming(props) {
 		<div className="middle-card">
 			<p>{props.id}</p>
 			<div className="upcoming-icon">
-				{/* <img src={UpcomingIcon} alt="event"></img> */}
+				<img src={props.poster} alt="event"></img>
 			</div>
 			<div className="details">
 				<p>{props.name}</p>

@@ -73,7 +73,9 @@ function Dashboard() {
 										/>
 									);
 
-								})}
+								})
+
+							}
 						</div>
 					</div>
 
@@ -85,6 +87,7 @@ function Dashboard() {
 									<Viewed
 										key={"0" + (ind + 1)}
 										id={"0" + (ind + 1)}
+										poster={i.poster}
 										name={i.name}
 										views={i.views}
 									/>
@@ -99,6 +102,7 @@ function Dashboard() {
 									<Liked
 										key={"0" + (ind + 1)}
 										id={"0" + (ind + 1)}
+										poster={i.poster}
 										name={i.name}
 										likes={i.likes}
 									/>
