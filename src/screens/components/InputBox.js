@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import InputAdornment from "@mui/material/InputAdornment";
 
 const InputBx = styled.input`
 	width: 90%;
@@ -30,8 +31,7 @@ const InputBx = styled.input`
 	&::placeholder {
 		font-size: 16px;
 		line-height: 28px;
-		/* identical to box height, or 175% */
-
+		fontFamily: "poppins";
 		letter-spacing: 0.75px;
 
 		color: #6e7191;
@@ -44,7 +44,21 @@ const InputBx = styled.input`
 `;
 
 const InputBox = (props) => {
-	return <InputBx type={props.type} placeholder={props.place}></InputBx>;
+	return (
+		<InputBx
+			type={props.type}
+			placeholder={props.place}
+			variant="outlined"
+			InputProps={{
+				startAdornment: (
+					<InputAdornment position="start">
+						{props.logo}
+					</InputAdornment>
+				),
+			}}
+			{...props}
+		></InputBx>
+	);
 };
 
 export default InputBox;

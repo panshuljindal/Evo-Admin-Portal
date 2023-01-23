@@ -44,6 +44,7 @@ function AllEvents() {
 				<div className="middle-dash-events">
 					<h3 className="event-heading">All Events (0{events.length})</h3>
 					<div className="row">
+
 						{events.map((i, ind) => {
 
 							return (
@@ -62,6 +63,7 @@ function AllEvents() {
 
 						}
 					</div>
+
 				</div>
 			</div>
 		</div>

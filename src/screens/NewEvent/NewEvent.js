@@ -10,6 +10,8 @@ import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import axios from "axios";
 import Button from "@mui/material/Button"
+import Banner from "../../components/Banner"
+import { useHistory } from "react-router-dom";
 
 const TextArea = styled(TextareaAutosize)(() => ({
 	width: "84%",
@@ -25,9 +27,9 @@ const TextArea = styled(TextareaAutosize)(() => ({
 		outline: "none",
 		border: "none",
 	},
-	"&:placeholder": {
+	"&::placeholder": {
 		fontFamily: "poppins, sans-serif",
-		color: "#6E7191",
+		color: "#6e7191",
 	},
 }));
 
@@ -47,9 +49,19 @@ const ChipBackground = styled(Chip)(() => ({
 }));
 
 function NewEvent() {
-	const [date, setDate] = useState(null);
-	const [registrationLink, setRegistrationLink] = useState(null);
-	const [time, setTime] = useState(null);
+	const history = useHistory()
+	const [date, setDate] = useState("");
+	const [registrationLink, setRegistrationLink] = useState("");
+	const [time, setTime] = useState("");
+	const [name, setName] = useState("");
+	const [description, setDescription] = useState("")
+	const [price, setPrice] = useState(null)
+	const [duration, setDuration] = useState(null)
+	const [banner, setBanner] = useState({
+		data: "",
+		value: false,
+		isOk: false,
+	});
 	const [tags, setTags] = useState({
 		Hackathon: true,
 		Riviera: false,
@@ -76,61 +88,109 @@ function NewEvent() {
 		setTags({ ...tags, [name]: !tags[name] });
 	};
 	const handleSubmit = () => {
-		console.log("Button Pressed");
-		// const data = {
-		// 	name: formValues.title,
-		// 	info: formValues.data,
-		// 	poster: formValues.image,
-		// 	timstamp: date,
-		// 	duration: time,
-		// 	registrationLink: registrationLink
+		const eventType = []
+		for (const key in tags) {
+			if (tags[key]) {
+				eventType.push(key)
+			}
+		}
+		const data = {
+			name: name,
+			info: description,
+			poster: formValues.data.slice(23),
+			price: price,
+			timestamp: Date.parse(date + " " + time) / 1000,
+			duration: duration,
+			registrationLink: registrationLink,
+			eventType: eventType
+		};
+		console.log(JSON.stringify(data))
+		const headers = {
+			headers: {
+				"auth-token": localStorage.getItem("token"),
+			}
+		}
+		axios
+			.post("https://evo-backend-production.up.railway.app/events/create", data, headers)
+			.then((res) => {
+				if (res.status == 200) {
+					setBanner({
+						data: "Event Added Successfully",
+						value: true,
+						isOk: true,
+					});
+					setInterval(() => {
+						history.push("/dashboard")
+					}, 1500);
+				}
 
-		// };
-		// console.log(data)
-		// console.log(chips)
-		// axios
-		// 	.post("https://evo-backend-production.up.railway.app/events/create",
-		// 		{
-		// 			headers: {
-		// 				"auth-token": localStorage.getItem("token"),
+			}).catch((error) => {
+				console.log(error)
 
-		// 			},
-
-		// 		}
-		// 	)
+			})
 	};
 
 	return (
-		<div>
+		<div className="main">
+			<Banner
+				open={banner.value}
+				setOpen={(value) => {
+					setBanner((prev) => {
+						return {
+							...prev,
+							value: value,
+						};
+					});
+				}}
+				text={banner.data}
+				isOk={banner.isOk}
+			/>
 			<div className="cont-dash">
 				<div className="left">
 					<Navbar />
 				</div>
 				<div className="middle-new">
 					<p className="title">New Event</p>
-					<InputBox type="text" place="Name of the Event" />
+					<InputBox
+						type="text"
+						place="Name of the Event"
+						value={name}
+						onChange={(e) => setName(e.target.value)}
+					/>
 					<TextArea
 						aria-label="minimum height"
-						minRows={5}
+						minRows={2}
 						placeholder="Event Description"
+						onChange={(e) => setDescription(e.target.value)}
 					/>
 					<InputBox
 						type="date"
 						place="Date of the Event"
 						value={date}
-						onChange={(newValue) => setDate(newValue)}
+						onChange={(newValue) => setDate(newValue.target.value)}
 					/>
 					<InputBox
 						type="time"
 						place="Time Duration"
-						value={date}
-						onChange={(newValue) => setTime(newValue)}
+						value={time}
+						onChange={(newValue) => setTime(newValue.target.value)}
 					/>
-					<InputBox type="number" place="Price" />
+					<InputBox
+						type="number"
+						place="Duration"
+						value={duration}
+						onChange={(newValue) => setDuration(newValue.target.value)}
+					/>
+					<InputBox
+						type="number"
+						place="Price"
+						value={price}
+						onChange={(newValue) => setPrice(newValue.target.value)}
+					/>
 					<InputBox
 						type="link"
 						place="Registration Link"
-						onChange={(newValue) => setRegistrationLink(newValue)}
+						onChange={(newValue) => setRegistrationLink(newValue.target.value)}
 					/>
 					<Button className="filledButton" text="" onClick={handleSubmit} >Publish Event</Button>
 				</div>

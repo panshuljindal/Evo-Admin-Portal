@@ -29,9 +29,9 @@ function Dashboard() {
 				}
 			)
 			.then((res) => {
-				setEvents(res.data.upcomingEvents);
-				setlikedEvents(res.data.likedEvents);
-				setViewedEvents(res.data.viewedEvents);
+				setEvents(res.data.upcomingEvents.slice(0, 2));
+				setlikedEvents(res.data.likedEvents.slice(0, 2));
+				setViewedEvents(res.data.viewedEvents.slice(0, 2));
 			})
 			.catch((err) => {
 				console.log(err);
