@@ -9,40 +9,14 @@ class Info extends Component {
 			teams: [
 				{
 					key: "1",
-					name: "Anmol Bansal",
-					desig: "Web Developer",
-					pic: "assets/anmol.jpg",
-					linked: "https://www.linkedin.com/in/anmolbansal7/",
-					git: "https://github.com/anmolbansal7",
-					email: "abanmolbansal5@gmail.com",
-				},
-				{
-					key: "2",
-					name: "Vidushi Gupta",
-					desig: "Web Developer",
-					pic: "assets/vidushi.png",
-					linked: "https://www.linkedin.com/in/vidushiguptaa/",
-					git: "https://github.com/vidushig08",
-					email: "vidushig08@gmail.com",
-				},
-				{
-					key: "3",
-					name: "Gokul Nair",
-					desig: "Web Developer",
-					pic: "assets/gokul.jpg",
-					linked: "https://www.linkedin.com/in/gokul-r-nair/",
-					git: "https://github.com/gokulnair2001",
-					email: "gokulnair.2001@gmail.com",
-				},
-				{
-					key: "4",
-					name: "Nikhil Parashar",
-					desig: "Web Developer",
-					pic: "assets/nikhil.jpg",
-					linked: "https://www.linkedin.com/in/nikhil-kumar-p-51794013a",
-					git: "https://github.com/NikhilKP631197",
-					email: "nikhil631197@gmail.com",
-				},
+					name: "Panshul Jindal",
+					desig: "Developer",
+					pic: "assets/panshul.png",
+					linked: "https://www.linkedin.com/in/panshul-jindal-392746199/",
+					git: "https://github.com/panshuljindal",
+					email: "panshuljindal@gmail.com",
+				}
+
 			],
 		};
 	}

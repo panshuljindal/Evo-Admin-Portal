@@ -49,9 +49,9 @@ class Settings extends Component {
 							<li onClick={() => this.onEvent()}>
 								Manage Events
 							</li>
-							<li onClick={() => this.onSecurity()}>
+							{/* <li onClick={() => this.onSecurity()}>
 								Account Security
-							</li>
+							</li> */}
 							<li onClick={() => this.onFAQ()}>F.A.Qs</li>
 							<li onClick={() => this.onConnect()}>
 								Connect With Us
