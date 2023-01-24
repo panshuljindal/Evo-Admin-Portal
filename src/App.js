@@ -12,6 +12,7 @@ import EditProfile from "./screens/EditProfile/EditProfile";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 import { Redirect } from "react-router-dom";
+import UpdateEvent from "./screens/EditEvent/UpdateEvent";
 
 function App() {
 	return (
@@ -40,6 +41,17 @@ function App() {
 							<Redirect to="/login" />;
 						}
 						return <AllEvents />;
+					}}
+				/>
+				<Route
+					exact
+					path="/updateEvent"
+					component={() => {
+						const token = localStorage.getItem("token");
+						if (!token) {
+							<Redirect to="/login" />;
+						}
+						return <UpdateEvent />;
 					}}
 				/>
 				<Route

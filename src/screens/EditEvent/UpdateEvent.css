@@ -1,0 +1,71 @@
+.middle-new {
+	width: 37.5vw;
+	height: 100vh;
+	padding-left: 3%;
+	padding-right: 1%;
+	padding-top: 5%;
+	display: flex;
+	flex-direction: column;
+	justify-content: left;
+	align-items: left;
+	/* background-color: red; */
+}
+
+.main {
+	height: 100vh;
+	width: 100vw;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: row;
+}
+
+.filledButton {
+	width: 280px !important;
+	height: 56px !important;
+	border-radius: 16px !important;
+	background-color: #5f2eea !important;
+	font-weight: 600 !important;
+	font-size: 0.9em !important;
+	line-height: 175% !important;
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	text-align: center !important;
+	letter-spacing: 0.75px !important;
+	color: #f7f7fc !important;
+	border: none !important;
+	margin: 0 !important;
+	cursor: pointer !important;
+	box-shadow: none !important;
+
+	@media only screen and (max-width: 400px) {
+		width: 250px;
+		height: 50px;
+		font-size: 0.9em;
+	}
+}
+
+.middle-new .title {
+	font-weight: 600;
+	font-size: 28px;
+	line-height: 128.5%;
+	/* identical to box height, or 36px */
+
+	letter-spacing: 0.02em;
+	padding-left: 1rem;
+
+	color: #f7f7fc;
+}
+
+.right-new {
+	width: 37.5vw;
+	height: 100vh;
+	padding-left: 1%;
+	padding-right: 4%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	/* background-color: blue; */
+}

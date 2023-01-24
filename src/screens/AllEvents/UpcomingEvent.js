@@ -2,9 +2,14 @@ import "./AllEvents.css";
 import poster from "./assets/poster.svg";
 import calendargrey from "./assets/calendargrey.svg";
 import rupeegrey from "./assets/rupeegrey.svg";
+import { useHistory } from "react-router-dom";
 
 function UpcomingEvent(props) {
-	console.log(props)
+	const history = useHistory()
+	const handleSubmit = () => {
+		localStorage.setItem("updateEventID", JSON.stringify(props.data))
+		history.push("/updateEvent")
+	}
 	return (
 		<div className="eventcard">
 			<div className="info">
@@ -22,7 +27,7 @@ function UpcomingEvent(props) {
 			<div className="event-poster">
 				<img src={props.poster} alt="event poster" className="poster"></img>
 			</div>
-			<button className="edit-event">Edit Event Details</button>
+			<button className="edit-event" onClick={handleSubmit}>Edit Event Details</button>
 		</div>
 	);
 }

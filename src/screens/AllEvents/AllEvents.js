@@ -46,9 +46,10 @@ function AllEvents() {
 					<div className="row">
 
 						{events.map((i, ind) => {
-
 							return (
 								<UpcomingEvent
+									data={i}
+									id={i._id}
 									name={i.name}
 									info={i.info}
 									date={new Date(
