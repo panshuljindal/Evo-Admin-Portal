@@ -11,8 +11,8 @@ function ManageEvent({ name, date, image }) {
 				<p className="event-name">{name ? name : "Blender 3D Workshop"}</p>
 				<p className="event-date">{date ? date : "29 February 2022"}</p>
 			</div>
-			{/* <img src={statsicon} className="icon" alt="stats" onClick={alert("Edit")}></img>
-			<img src={delicon} className="icon" alt="delete" onClick={alert("Delete")}></img> */}
+			<img src={statsicon} className="icon" alt="stats"></img>
+			<img src={delicon} className="icon" alt="delete" ></img>
 		</div>
 	);
 }
