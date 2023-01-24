@@ -9,12 +9,14 @@ function Events() {
 	const [error, setError] = useState(false);
 
 	useEffect(() => {
-		axios.get("https://vit-events-app.herokuapp.com/events?page=0", {
+		axios.get(`https://evo-backend-production.up.railway.app/club/events/${localStorage.getItem(
+			"id"
+		)}`, {
 			headers: {
 				"auth-token": localStorage.getItem("token")
 			}
 		}).then(res => {
-			setEvents(res.data.data)
+			setEvents(res.data.upcomingEvents)
 		}).catch(err => {
 			setError(true);
 		})
@@ -25,13 +27,13 @@ function Events() {
 			<div className="active-event">
 				<p className="manage-heading">Active</p>
 				{!error && events.map((e) => {
-					return <ManageEvent name={e.name} image={e.poster} />
+					return <ManageEvent name={e.name} />
 				})}
 			</div>
 			<div className="previous-event">
 				<p className="manage-heading">Previous Events</p>
 				{!error && events.map((e) => {
-					return <ManageEvent name={e.name} image={e.poster} />
+					return <ManageEvent name={e.name} />
 				})}
 			</div>
 		</div>
