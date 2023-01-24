@@ -82,7 +82,6 @@ function UpdateEvent() {
 			defaultTags[chips[key]] = false
 		}
 	}
-	console.log(defaultTags)
 	const [tags, setTags] = useState(defaultTags);
 	const [formValues, setFormValues] = useState({
 		title: "",
@@ -101,25 +100,33 @@ function UpdateEvent() {
 				eventType.push(key)
 			}
 		}
+		let eventData = {}
 		const data = {
 			name: name,
 			info: description,
-			poster: formValues.data,
 			price: price,
 			timestamp: Date.parse(date + " " + time) / 1000,
 			duration: duration,
 			registrationLink: registrationLink,
 			eventType: eventType
 		};
-		console.log(JSON.stringify(data))
+		if (formValues.data) {
+			eventData = {
+				...data,
+				poster: formValues.data
+			}
+		} else {
+			eventData = {
+				...data
+			}
+		}
 		const headers = {
 			headers: {
 				"auth-token": localStorage.getItem("token"),
 			}
 		}
-		console.log(JSON.stringify(headers))
 		axios
-			.put(`https://evo-backend-production.up.railway.app/events/updateEvent/${eventDetails._id}`, data, headers)
+			.put(`https://evo-backend-production.up.railway.app/events/updateEvent/${eventDetails._id}`, eventData, headers)
 			.then((res) => {
 				if (res.status == 200) {
 					setBanner({

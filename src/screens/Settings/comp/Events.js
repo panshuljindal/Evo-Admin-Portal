@@ -27,13 +27,13 @@ function Events() {
 			<div className="active-event">
 				<p className="manage-heading">Active</p>
 				{!error && events.map((e) => {
-					return <ManageEvent name={e.name} />
+					return <ManageEvent data={e} />
 				})}
 			</div>
 			<div className="previous-event">
 				<p className="manage-heading">Previous Events</p>
 				{!error && events.map((e) => {
-					return <ManageEvent name={e.name} />
+					return <ManageEvent data={e} />
 				})}
 			</div>
 		</div>
