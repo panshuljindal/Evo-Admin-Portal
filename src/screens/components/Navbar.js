@@ -128,22 +128,29 @@ class Navbar extends Component {
 						<div className="heading">SOCIALS</div>
 						<div className="links">
 							<ul>
-								<li title="Instagram">
-									<IGIcon /> &ensp; <p> {this.state.instagram}</p>
-								</li>
-								<li title="Facebook">
-									<FBIcon /> &ensp; <p> {this.state.facebook}</p>
-								</li>
-								<li title="Twitter">
-									<TWIcon /> &ensp; <p> {this.state.twitter}</p>
-								</li>
-								<li title="Linkedin">
-									<LDIcon /> &ensp; <p> {this.state.linkedin}</p>
-								</li>
-								<li title="Medium">
-									<MEIcon /> &ensp;{" "}
-									<p> {this.state.medium}</p>
-								</li>
+							{this.state.instagram && (
+                                    <li title="Instagram">
+                                    <IGIcon /> &ensp; <p> {this.state.instagram}</p>
+                                </li>
+                                )}
+                                {this.state.facebook && (
+                                    <li title="Facebook">
+                                    <FBIcon /> &ensp; <p> {this.state.facebook}</p>
+                                </li>
+                                )}
+                                {this.state.twitter && (<li title="Twitter">
+                                    <TWIcon /> &ensp; <p> {this.state.twitter}</p>
+                                </li>)}
+                                {this.state.linkedin && (
+                                    <li title="Linkedin">
+                                    <LDIcon /> &ensp; <p> {this.state.linkedin}</p>
+                                </li>
+                                )}
+                                {this.state.medium && (
+                                    <li title="Medium">
+                                    <MEIcon /> &ensp;{" "}
+                                    <p> {this.state.medium}</p>
+                                	</li>)}
 							</ul>
 						</div>
 					</div>
