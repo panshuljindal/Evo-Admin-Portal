@@ -1,0 +1,235 @@
+/* 1280,990,768,576 and 400 */
+
+.left-nav {
+	width: 20vw;
+	height: 100vh;
+	padding-left: 2%;
+	padding-right: 0%;
+	position: absolute;
+	z-index: 99;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* background-color: blue; */
+	margin: 0;
+	overflow: hidden;
+	/* background-color: royalblue; */
+}
+
+.nav-main {
+	background-color: #181818;
+	border-radius: 32px;
+	height: 95%;
+	width: 85%;
+	padding-left: 7%;
+	padding-right: 7%;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: stretch;
+	overflow: hidden;
+}
+
+.nav-logo {
+	width: 100%;
+	flex-grow: 1;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding-top: 10%;
+	padding-bottom: 5%;
+	/* background-color: #ff295d; */
+	/* overflow: hidden; */
+}
+
+.nav-logo .logo-circle {
+	width: 64px;
+	height: 64px;
+	border: 3.2625px solid #353535;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.nav-logo .logo-circle img {
+	width: 64px;
+	height: 64px;
+	object-fit: cover;
+}
+
+.nav-logo .logo-edit {
+	position: relative;
+	z-index: 99;
+	margin-left: -10%;
+	margin-bottom: -25%;
+	box-sizing: border-box;
+}
+.nav-logo .nav-text {
+	padding-left: 5%;
+	width: 60%;
+}
+.nav-logo .nav-text .club-name {
+	width: 100%;
+	font-weight: 600;
+	font-size: 1em;
+	line-height: 1.5em;
+	color: #ffffff;
+	margin: 0;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.nav-logo .nav-text .event-count {
+	font-weight: 600;
+	font-size: 0.78em;
+	line-height: 1.125em;
+	color: rgba(255, 255, 255, 0.65);
+	margin: 0;
+	text-overflow: ellipsis;
+}
+
+.nav-menu {
+	width: 100%;
+	flex-grow: 1.5;
+	/* height: 28.6%; */
+	display: flex;
+	flex-direction: column;
+	/* justify-content: center; */
+	align-items: flex-start;
+	/* margin-left: 10%; */
+	border-top: 0.45px solid #202020;
+	padding-top: 10%;
+	padding-bottom: 0%;
+	/* background-color: purple; */
+	/* overflow: hidden; */
+}
+.nav-menu .heading,
+.nav-social .heading {
+	color: #606060;
+	font-size: 0.65em;
+	line-height: 1em;
+	font-weight: 600;
+}
+
+.nav-menu .links {
+	color: #a1a1a1;
+	font-weight: 500;
+	font-size: 0.8em;
+	line-height: 1.1875em;
+}
+
+.nav-menu .links ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+.nav-menu .links ul li a {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: 10%;
+	text-decoration: none;
+	color: #a1a1a1;
+}
+
+.nav-menu .links ul li a:hover {
+	color: #5f2eea;
+	transition: 0.2s;
+	opacity: 1;
+}
+
+.nav-menu .links ul li a.active {
+	color: #5f2eea;
+	opacity: 1;
+}
+
+/* .nav-menu .links ul li a:hover~.clr {
+  color: #5F2EEA;
+  transition: 0.2s;
+  opacity: 1;
+} */
+
+/* .nav-menu .links ul li a.active{
+  color: #5F2EEA;
+} */
+/* .clr{
+  color: #FCFCFC;
+  opacity: 0.6;
+} */
+/* .clr:hover{
+  color: #5F2EEA;
+  opacity: 1;
+  transition: 0.2s;
+} */
+/* .clr.active{
+  color: #5F2EEA;
+  opacity: 1;
+} */
+
+.nav-social {
+	/* height: 36.7%; */
+	flex-grow: 1.5;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	/* justify-content: center; */
+	align-items: flex-start;
+	/* margin-left: 10%; */
+	border-top: 0.45px solid #202020;
+	padding-top: 10%;
+	padding-bottom: 0%;
+	/* background-color: red; */
+	/* overflow: hidden; */
+}
+.nav-social .links {
+	/* height: 80%; */
+	background-color: #121212;
+	width: 90%;
+	border-radius: 14.29px;
+	font-weight: 500;
+	font-size: 0.78em;
+	line-height: 1.1875em;
+	color: #ffffff;
+	padding-left: 10%;
+	padding-top: 5%;
+	padding-bottom: 5%;
+	margin-top: 5%;
+}
+.nav-social .links ul {
+	width: 90%;
+	list-style-type: none;
+	padding: 0;
+}
+
+.nav-social .links ul li {
+	/* width: 70%; */
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: 12%;
+}
+.nav-social .links ul li p {
+	margin: 0;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.nav-out {
+	/* height: 15.3%; */
+	flex-grow: 0.5;
+	width: 100%;
+	display: flex;
+	/* flex-direction: column; */
+	justify-content: center;
+	align-items: center;
+	border-top: 0.45px solid #202020;
+	padding-top: 10%;
+	padding-bottom: 5%;
+	font-weight: 600;
+	font-size: 1em;
+	line-height: 1.6875em;
+	color: #ff295d;
+	cursor: pointer;
+	/* background-color: royalblue; */
+	/* overflow: hidden; */
+}
