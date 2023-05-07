@@ -157,12 +157,14 @@ function NewEvent() {
 						value={name}
 						onChange={(e) => setName(e.target.value)}
 					/>
+		
 					<TextArea
 						aria-label="minimum height"
 						minRows={2}
 						placeholder="Event Description"
 						onChange={(e) => setDescription(e.target.value)}
 					/>
+				
 					<InputBox
 						type="date"
 						place="Date of the Event"
