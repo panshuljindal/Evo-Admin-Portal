@@ -52,7 +52,7 @@ function NewEvent() {
 	const history = useHistory()
 	const [date, setDate] = useState("");
 	const [registrationLink, setRegistrationLink] = useState("");
-	const [time, setTime] = useState("");
+	const [venue, setVenue] = useState("");
 	const [name, setName] = useState("");
 	const [description, setDescription] = useState("")
 	const [price, setPrice] = useState(null)
@@ -99,10 +99,11 @@ function NewEvent() {
 			info: description,
 			poster: formValues.data.slice(23),
 			price: price,
-			timestamp: Date.parse(date + " " + time) / 1000,
+			timestamp: new Date(date).getTime()/1000,
 			duration: duration,
 			registrationLink: registrationLink,
-			eventType: eventType
+			eventType: eventType,
+			venue: venue
 		};
 		console.log(JSON.stringify(data))
 		const headers = {
@@ -164,16 +165,16 @@ function NewEvent() {
 						onChange={(e) => setDescription(e.target.value)}
 					/>
 					<InputBox
-						type="date"
+						type="datetime-local"
 						place="Date of the Event"
 						value={date}
 						onChange={(newValue) => setDate(newValue.target.value)}
 					/>
 					<InputBox
-						type="time"
-						place="Time Duration"
-						value={time}
-						onChange={(newValue) => setTime(newValue.target.value)}
+						type="text"
+						place="Venue"
+						value={venue}
+						onChange={(newValue) => setVenue(newValue.target.value)}
 					/>
 					<InputBox
 						type="number"
