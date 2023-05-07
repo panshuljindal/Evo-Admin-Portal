@@ -54,9 +54,9 @@ function UpdateEvent() {
 		"updateEventID"
 	))
 	const history = useHistory()
-	const [date, setDate] = useState(new Date(eventDetails.timestamp * 1000).toISOString().substring(0, 10));
+	const [date, setDate] = useState(new Date(eventDetails.timestamp * 1000).toISOString().slice(0, 16));
 	const [registrationLink, setRegistrationLink] = useState(eventDetails.registrationLink);
-	const [time, setTime] = useState(new Date(eventDetails.timestamp * 1000).toLocaleTimeString("default"));
+	const [venue, setVenue] = useState(eventDetails.venue);
 	const [name, setName] = useState(eventDetails.name);
 	const [description, setDescription] = useState(eventDetails.info)
 	const [price, setPrice] = useState(eventDetails.eventCost)
@@ -102,13 +102,14 @@ function UpdateEvent() {
 		}
 		let eventData = {}
 		const data = {
-			name: name,
+			name,
 			info: description,
-			price: price,
-			timestamp: Date.parse(date + " " + time) / 1000,
-			duration: duration,
-			registrationLink: registrationLink,
-			eventType: eventType
+			price,
+			timestamp: new Date(date).getTime()/1000,
+			duration,
+			registrationLink,
+			eventType,
+			venue
 		};
 		if (formValues.data) {
 			eventData = {
@@ -180,16 +181,16 @@ function UpdateEvent() {
 						onChange={(e) => setDescription(e.target.value)}
 					/>
 					<InputBox
-						type="date"
+						type="datetime-local"
 						place="Date of the Event"
 						value={date}
 						onChange={(newValue) => setDate(newValue.target.value)}
 					/>
 					<InputBox
-						type="time"
-						place="Time Duration"
-						value={time}
-						onChange={(newValue) => setTime(newValue.target.value)}
+						type="text"
+						place="Venue"
+						value={venue}
+						onChange={(newValue) => setVenue(newValue.target.value)}
 					/>
 					<InputBox
 						type="number"
@@ -209,7 +210,7 @@ function UpdateEvent() {
 						value={registrationLink}
 						onChange={(newValue) => setRegistrationLink(newValue.target.value)}
 					/>
-					<Button className="filledButton" text="" onClick={handleSubmit} >Publish Event</Button>
+					<Button className="filledButton" text="" onClick={handleSubmit} >Update</Button>
 				</div>
 				<div className="right-new">
 					<FileUpload
