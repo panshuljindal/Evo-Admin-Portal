@@ -9,7 +9,7 @@ function ManageEvent(props) {
 	const history = useHistory()
 	return (
 		<div className="manage-event">
-			<img src={greyicon}></img>
+			<img src={props.data.poster} className="manageEventPoster"></img>
 			<div className="event-details">
 				<p className="event-name">{props.data.name ? props.data.name : "Blender 3D Workshop"}</p>
 				<p className="event-date">{props.date ? props.date : "29 February 2022"}</p>

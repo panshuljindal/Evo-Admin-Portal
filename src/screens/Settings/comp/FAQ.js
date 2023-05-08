@@ -6,10 +6,7 @@ const data = {
 	rows: [
 		{
 			title: "How to Change Event Timings?",
-			content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed tempor sem. Aenean vel turpis feugiat,
-            ultricies metus at, consequat velit. Curabitur est nibh, varius in tellus nec, mattis pulvinar metus.
-            In maximus cursus lorem, nec laoreet velit eleifend vel. Ut aliquet mauris tortor, sed egestas libero interdum vitae.
-            Fusce sed commodo purus, at tempus turpis.`,
+			content: `You need to navigate to the All Events page, then click on edit event. Make the change in the timings required and press the update button.`,
 		},
 		{
 			title: "How to Change Event Timings?",

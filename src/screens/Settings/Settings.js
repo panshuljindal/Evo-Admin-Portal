@@ -7,7 +7,7 @@ class Settings extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			type: null,
+			type: "events",
 		};
 	}
 
@@ -43,19 +43,11 @@ class Settings extends Component {
 					<h3>Settings</h3>
 					<div className="box">
 						<ul>
-							<li onClick={() => this.onPartners()}>
-								Partners Program
-							</li>
 							<li onClick={() => this.onEvent()}>
 								Manage Events
 							</li>
-							{/* <li onClick={() => this.onSecurity()}>
-								Account Security
-							</li> */}
 							<li onClick={() => this.onFAQ()}>F.A.Qs</li>
-							<li onClick={() => this.onConnect()}>
-								Connect With Us
-							</li>
+						
 							<li onClick={() => this.onPrivacy()}>
 								Privacy Policy
 							</li>
