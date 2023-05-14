@@ -10,6 +10,20 @@ import Button from "@mui/material/Button";
 import axios from "axios";
 import { styled } from "@mui/system";
 import Banner from "../../components/Banner";
+import Avatar from "@mui/material/Avatar";
+import {
+  FaTwitter,
+  FaInstagram,
+  FaFacebook,
+  FaLinkedinIn,
+  FaMediumM,
+} from "react-icons/fa";
+const reader = new FileReader();
+const NewAvatar = styled(Avatar)(() => ({
+  border: "1px solid transparent",
+  margin: "0.3rem 0.5rem",
+  backgroundColor: "#121212",
+}));
 
 const TextArea = styled(TextareaAutosize)(() => ({
   width: "84%",
@@ -31,6 +45,7 @@ const TextArea = styled(TextareaAutosize)(() => ({
   },
 }));
 function EditProfile() {
+  const clubDetails = JSON.parse(localStorage.getItem("clubDetails"));
   const history = useHistory();
   const [tagLine, setTagLine] = useState("");
   const [emailID, setEmailID] = useState("");
@@ -43,17 +58,61 @@ function EditProfile() {
     isOk: false,
   });
 
-  const [formValues, setFormValues] = useState({
+  const [social, setSocial] = useState("Instagram");
+  const [value, setValue] = useState({
+    Instagram: "",
+    Facebook: "",
+    Twitter: "",
+    Linkedin: "",
+    Medium: "",
+  });
+
+  const [logo, setLogo] = useState(
+    <FaInstagram fontSize="1.5rem" color="#6E7191" />
+  );
+  const handleSocials = (name, val) => {
+    setValue({ ...value, [name]: val });
+  };
+  const [logoFormValues, setLogoFormValues] = useState({
     title: "",
     body: "",
     image: null,
     data: "",
   });
+  const [backdropFormValues, setBackdropFormValues] = useState({
+    title: "",
+    body: "",
+    image: null,
+    data: "",
+  });
+  const handleImageChange = (event) => {
+    if (event.target.files[0]) {
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onloadend = () => {
+        setBackdropFormValues((prevFormValues) => ({
+          ...prevFormValues,
+          image: event.target.files ? event.target.files[0] : null,
+          data: reader.result,
+        }));
+        console.log(reader.result);
+      };
+    } else {
+      console.log("Not uploaded yet");
+    }
+  };
+
   const handleSubmit = () => {
     const data = {
       name: name,
-      info: description,
-      poster: formValues.data.slice(23),
+      tagline: tagLine,
+      description: description,
+      linkedIn: "sample.linkedin.com",
+      instagram: "sample.ig.com",
+      medium: "medium.com",
+      youtube: "yt.com",
+      twitter: "twitter.com",
+      [social]: value,
+      email: emailID,
     };
     console.log(JSON.stringify(data));
     const headers = {
@@ -61,7 +120,18 @@ function EditProfile() {
         "auth-token": localStorage.getItem("token"),
       },
     };
+    let eventData = {};
     const id = localStorage.getItem("id");
+    if (backdropFormValues.data) {
+			eventData = {
+				...data,
+				poster: backdropFormValues.data
+			}
+		} else {
+			eventData = {
+				...data
+			}
+		}
     axios
       .post(
         `https://evo-backend-production.up.railway.app/club/editclubprofile/${id}`,
@@ -79,6 +149,8 @@ function EditProfile() {
             history.push("/dashboard");
           }, 1500);
         }
+
+        console.log("Request sent with data: " + eventData)
       })
       .catch((error) => {
         console.log(error);
@@ -126,6 +198,78 @@ function EditProfile() {
             onChange={(e) => setDescription(e.target.value)}
           />
           <p className="label">Social links</p>
+          <div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <NewAvatar
+                onClick={() => {
+                  setSocial("Instagram");
+                  setLogo(<FaInstagram fontSize="1.5rem" color="#6E7191" />);
+                }}
+                style={
+                  social === "Instagram" ? { border: "1px solid #5F2EEA" } : {}
+                }
+              >
+                <FaInstagram />
+              </NewAvatar>
+              <NewAvatar
+                onClick={() => {
+                  setSocial("Facebook");
+                  setLogo(<FaFacebook fontSize="1.5rem" color="#6E7191" />);
+                }}
+                style={
+                  social === "Facebook" ? { border: "1px solid #5F2EEA" } : {}
+                }
+              >
+                <FaFacebook />
+              </NewAvatar>
+              <NewAvatar
+                onClick={() => {
+                  setSocial("Twitter");
+                  setLogo(<FaTwitter fontSize="1.5rem" color="#6E7191" />);
+                }}
+                style={
+                  social === "Twitter" ? { border: "1px solid #5F2EEA" } : {}
+                }
+              >
+                <FaTwitter />
+              </NewAvatar>
+              <NewAvatar
+                onClick={() => {
+                  setSocial("Linkedin");
+                  setLogo(<FaLinkedinIn fontSize="1.5rem" color="#6E7191" />);
+                }}
+                style={
+                  social === "Linkedin" ? { border: "1px solid #5F2EEA" } : {}
+                }
+              >
+                <FaLinkedinIn />
+              </NewAvatar>
+              <NewAvatar
+                onClick={() => {
+                  setSocial("Medium");
+                  setLogo(<FaMediumM fontSize="1.5rem" color="#6E7191" />);
+                }}
+                style={
+                  social === "Medium" ? { border: "1px solid #5F2EEA" } : {}
+                }
+              >
+                <FaMediumM />
+              </NewAvatar>
+            </div>
+            <InputBox
+              type="text"
+              place={social}
+              value={value[social]}
+              logo={logo}
+              onChange={(e) => handleSocials(social, e.target.value)}
+            />
+          </div>
           <p className="label">Contact Info</p>
           <InputBox
             type="text"
@@ -133,29 +277,39 @@ function EditProfile() {
             value={emailID}
             onChange={(e) => setEmailID(e.target.value)}
           />
-          <InputBox
+          {/* <InputBox
             type="text"
-            place="Phone number"
-            value={phone}
+            place="Phone numbe"
+            value={clubDetails.clubType}
             onChange={(e) => setPhone(e.target.value)}
-          />
+          /> */}
           <Button className="filledButton" text="" onClick={handleSubmit}>
             Update Profile
           </Button>
         </div>
       </div>
       <div className="right-container">
-        <div className="poster-container">
-          <FileUpload formValues={formValues}></FileUpload>
+        <div className="poster-container backdropChange">
+          <label htmlFor="fileInput">
+            <img src={clubDetails.backdrop}></img>
+          </label>
+          <input
+            type="file"
+            id="fileInput"
+            hidden
+            onChange={(e) => handleImageChange(e)}
+            // onChange={(e) => setBackdropFormValues(e.target.files[0])}
+          ></input>
+          {backdropFormValues != null
+            ? console.log(backdropFormValues.name)
+            : console.log("Not yet uploaded")}
         </div>
-        <div className="logo-container">
-         
-		  <img src="https://shopexadvent.blob.core.windows.net/provider-images/Adam_Jones.png" className="logoChange"></img>
-		  <FileUpload formValues={formValues}>
-			
-			</FileUpload>
+        <div className="logo-container logoChange">
+          <img src={clubDetails.logo}></img>
+          {/* <FileUpload formValues={logoFormValues}></FileUpload> */}
         </div>
-		<p className="action">Click on the images to change them</p>
+        <p className="action">Click on the images to change them</p>
+        {/* <p> Hi { backdropFormValues && backdropFormValues.name}</p> */}
       </div>
     </div>
   );

@@ -38,6 +38,7 @@ class Navbar extends Component {
 						linkedin: res.data.linkedin,
 						medium: res.data.linkedin
 					});
+					localStorage.setItem("clubDetails", JSON.stringify(res.data));
 				} else {
 					this.setState({
 						name: "Sample VIT",
