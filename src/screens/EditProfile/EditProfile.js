@@ -133,7 +133,7 @@ function EditProfile() {
 			}
 		}
     axios
-      .post(
+      .put(
         `https://evo-backend-production.up.railway.app/club/editclubprofile/${id}`,
         data,
         headers
