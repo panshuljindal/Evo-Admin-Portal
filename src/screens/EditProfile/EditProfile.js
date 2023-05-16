@@ -84,16 +84,42 @@ function EditProfile() {
     image: null,
     data: "",
   });
-  const handleImageChange = (event) => {
+  const handleImageChange = (event, type) => {
+    console.log(type)
     if (event.target.files[0]) {
       reader.readAsDataURL(event.target.files[0]);
       reader.onloadend = () => {
-        setBackdropFormValues((prevFormValues) => ({
-          ...prevFormValues,
-          image: event.target.files ? event.target.files[0] : null,
-          data: reader.result,
-        }));
-      };
+        if(type === "backdrop"){
+          setBackdropFormValues((prevFormValues) => ({
+            ...prevFormValues,
+            image: event.target.files ? event.target.files[0] : null,
+            data: reader.result,
+          }));
+        } else {
+          setLogoFormValues((prevFormValues) => ({
+            ...prevFormValues,
+            image: event.target.files ? event.target.files[0] : null,
+            data: reader.result,
+          }));
+        }
+      }
+    } else if(event.target.files[1]){
+      reader.readAsDataURL(event.target.files[1]);
+      reader.onloadend = () => {
+        if(type == "backdrop"){
+          setBackdropFormValues((prevFormValues) => ({
+            ...prevFormValues,
+            image: event.target.files ? event.target.files[0] : null,
+            data: reader.result,
+          }));
+        } else {
+          setLogoFormValues((prevFormValues) => ({
+            ...prevFormValues,
+            image: event.target.files ? event.target.files[0] : null,
+            data: reader.result,
+          }));
+        }
+      }
     } else {
       console.log("Not uploaded yet");
     }
@@ -115,18 +141,20 @@ function EditProfile() {
         "auth-token": localStorage.getItem("token"),
       },
     };
-    let eventData = {};
+    let eventData = data;
     const id = localStorage.getItem("id");
+    console.log(backdropFormValues.data);
     if (backdropFormValues.data.length > 0) {
 			eventData = {
-				...data,
+				...eventData,
 				backdrop: backdropFormValues.data
 			}
-		} else {
+		} 
+    if (logoFormValues.data.length > 0) {
 			eventData = {
-				...data
+				...eventData,
+				logo: logoFormValues.data
 			}
-
 		}
     axios
       .post(
@@ -288,18 +316,27 @@ function EditProfile() {
             type="file"
             id="fileInput"
             hidden
-            onChange={(e) => handleImageChange(e)}
+            onChange={(e) => handleImageChange(e, "backdrop")}
           ></input>
           {backdropFormValues != null
             ? console.log(backdropFormValues.name)
             : console.log("Not yet uploaded")}
         </div>
         <div className="logo-container logoChange">
-          <img src={clubDetails.logo}></img>
-          {/* <FileUpload formValues={logoFormValues}></FileUpload> */}
+          <label htmlFor="fileInputL">
+            <img src={clubDetails.logo}></img>
+          </label>
+          <input
+            type="file"
+            id="fileInputL"
+            hidden
+            onChange={(e) => handleImageChange(e, "logo")}
+          ></input>
+          {logoFormValues != null
+            ? console.log(logoFormValues.name)
+            : console.log("Not yet uploaded")}
         </div>
         <p className="action">Click on the images to change them</p>
-        {/* <p> Hi { backdropFormValues && backdropFormValues.name}</p> */}
       </div>
     </div>
   );
