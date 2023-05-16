@@ -24,7 +24,9 @@ class Navbar extends Component {
 	}
 	componentDidMount() {
 		const id = localStorage.getItem("id");
-		axios
+		let clubDetails = localStorage.getItem("clubDetails");
+		if(!clubDetails){
+			axios
 			.get(`https://evo-backend-production.up.railway.app/club/get/${id}`)
 			.then((res) => {
 				if (res.status === 200) {
@@ -36,7 +38,7 @@ class Navbar extends Component {
 						facebook: res.data.facebook,
 						twitter: res.data.twitter,
 						linkedin: res.data.linkedin,
-						medium: res.data.linkedin
+						medium: res.data.medium
 					});
 					localStorage.setItem("clubDetails", JSON.stringify(res.data));
 				} else {
@@ -54,6 +56,19 @@ class Navbar extends Component {
 					logo: null,
 				});
 			});
+		} else {
+			clubDetails = JSON.parse(clubDetails);
+			this.setState({
+				name: clubDetails.name,
+				length: clubDetails.events.length,
+				logo: clubDetails.logo !== undefined ? clubDetails.logo : null,
+				instagram: clubDetails.instagram,
+				facebook: clubDetails.facebook,
+				twitter: clubDetails.twitter,
+				linkedin: clubDetails.linkedin,
+				medium: clubDetails.linkedin
+			});
+		}
 	}
 	render() {
 		return (
@@ -64,7 +79,7 @@ class Navbar extends Component {
 							{this.state.logo !== null ? <div className="logo-circle" title="Edit Profile">
 								<img src={this.state.logo} alt="Logo"></img>
 							</div> : <div className="logo-circle" title="Edit Profile" style={{ backgroundColor: "orange", display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '2rem' }} >
-								{this.state.name[0]}
+								{this.state.name}
 							</div>}
 						</NavLink>
 						<div className="logo-edit" title="Edit Profile">

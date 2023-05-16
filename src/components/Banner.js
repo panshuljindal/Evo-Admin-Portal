@@ -4,10 +4,12 @@ import Alert from "@mui/material/Alert";
 import IconButton from "@mui/material/IconButton";
 import Collapse from "@mui/material/Collapse";
 import { AiOutlineClose } from "react-icons/ai";
+import zIndex from "@mui/material/styles/zIndex";
 
 export default function TransitionAlerts({ open, setOpen, text, isOk }) {
 	return (
-		<Box sx={{ width: "100%" }} position="absolute">
+		<div style={{zIndex: 2}}>
+			<Box sx={{ width: "100%"}} position="absolute">
 			<Collapse in={open}>
 				<Alert
 					action={
@@ -30,5 +32,6 @@ export default function TransitionAlerts({ open, setOpen, text, isOk }) {
 				</Alert>
 			</Collapse>
 		</Box>
+		</div>
 	);
 }

@@ -6,7 +6,7 @@
 	padding-left: 2%;
 	padding-right: 0%;
 	position: absolute;
-	z-index: 99;
+	z-index: 1;
 	display: flex;
 	justify-content: center;
 	align-items: center;

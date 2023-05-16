@@ -46,6 +46,9 @@
 
 .poster {
 	border-radius: 16px;
+	object-fit: fill;
+	height: 200px;
+	width: 200px;
 }
 
 p {

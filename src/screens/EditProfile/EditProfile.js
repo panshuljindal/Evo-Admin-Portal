@@ -47,11 +47,10 @@ const TextArea = styled(TextareaAutosize)(() => ({
 function EditProfile() {
   const clubDetails = JSON.parse(localStorage.getItem("clubDetails"));
   const history = useHistory();
-  const [tagLine, setTagLine] = useState("");
-  const [emailID, setEmailID] = useState("");
-  const [phone, setPhone] = useState("");
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
+  const [tagLine, setTagLine] = useState(clubDetails.tagLine);
+  const [emailID, setEmailID] = useState(clubDetails.email);
+  const [name, setName] = useState(clubDetails.name);
+  const [description, setDescription] = useState(clubDetails.description);
   const [banner, setBanner] = useState({
     data: "",
     value: false,
@@ -60,13 +59,13 @@ function EditProfile() {
 
   const [social, setSocial] = useState("Instagram");
   const [value, setValue] = useState({
-    Instagram: "",
-    Facebook: "",
-    Twitter: "",
-    Linkedin: "",
-    Medium: "",
+    Instagram: clubDetails.instagram,
+    Facebook: clubDetails.facebook,
+    Twitter: clubDetails.twitter,
+    Linkedin: clubDetails.linkedIn,
+    Medium: clubDetails.medium,
   });
-
+  console.log(value);
   const [logo, setLogo] = useState(
     <FaInstagram fontSize="1.5rem" color="#6E7191" />
   );
@@ -94,7 +93,6 @@ function EditProfile() {
           image: event.target.files ? event.target.files[0] : null,
           data: reader.result,
         }));
-        console.log(reader.result);
       };
     } else {
       console.log("Not uploaded yet");
@@ -106,15 +104,12 @@ function EditProfile() {
       name: name,
       tagline: tagLine,
       description: description,
-      linkedIn: "sample.linkedin.com",
-      instagram: "sample.ig.com",
-      medium: "medium.com",
-      youtube: "yt.com",
-      twitter: "twitter.com",
-      [social]: value,
+      linkedIn: value.Linkedin,
+      instagram: value.Instagram,
+      medium: value.Medium,
+      twitter: value.Twitter,
       email: emailID,
     };
-    console.log(JSON.stringify(data));
     const headers = {
       headers: {
         "auth-token": localStorage.getItem("token"),
@@ -122,24 +117,26 @@ function EditProfile() {
     };
     let eventData = {};
     const id = localStorage.getItem("id");
-    if (backdropFormValues.data) {
+    if (backdropFormValues.data.length > 0) {
 			eventData = {
 				...data,
-				poster: backdropFormValues.data
+				backdrop: backdropFormValues.data
 			}
 		} else {
 			eventData = {
 				...data
 			}
+
 		}
     axios
-      .put(
-        `https://evo-backend-production.up.railway.app/club/editclubprofile/${id}`,
-        data,
+      .post(
+        `https://evo-backend-production.up.railway.app/club/editClubProfile/${id}`,
+        eventData,
         headers
       )
       .then((res) => {
         if (res.status == 200) {
+          localStorage.setItem("clubDetails", JSON.stringify(res.data));
           setBanner({
             data: "Profile Updated Successfully",
             value: true,
@@ -150,7 +147,6 @@ function EditProfile() {
           }, 1500);
         }
 
-        console.log("Request sent with data: " + eventData)
       })
       .catch((error) => {
         console.log(error);
@@ -195,6 +191,7 @@ function EditProfile() {
             aria-label="minimum height"
             minRows={5}
             placeholder="Club Description (250 max characters)"
+            value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
           <p className="label">Social links</p>
@@ -277,12 +274,6 @@ function EditProfile() {
             value={emailID}
             onChange={(e) => setEmailID(e.target.value)}
           />
-          {/* <InputBox
-            type="text"
-            place="Phone numbe"
-            value={clubDetails.clubType}
-            onChange={(e) => setPhone(e.target.value)}
-          /> */}
           <Button className="filledButton" text="" onClick={handleSubmit}>
             Update Profile
           </Button>
@@ -298,7 +289,6 @@ function EditProfile() {
             id="fileInput"
             hidden
             onChange={(e) => handleImageChange(e)}
-            // onChange={(e) => setBackdropFormValues(e.target.files[0])}
           ></input>
           {backdropFormValues != null
             ? console.log(backdropFormValues.name)
