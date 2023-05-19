@@ -1,6 +1,5 @@
 import React from "react";
-import { BrowserRouter, Router, Switch, Route } from "react-router-dom";
-import { motion } from "framer-motion";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -10,7 +9,6 @@ import AllEvents from "./screens/AllEvents/AllEvents";
 import NewEvent from "./screens/NewEvent/NewEvent";
 import EditProfile from "./screens/EditProfile/EditProfile";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import Loader from "react-loader-spinner";
 import { Redirect } from "react-router-dom";
 import UpdateEvent from "./screens/EditEvent/UpdateEvent";
 

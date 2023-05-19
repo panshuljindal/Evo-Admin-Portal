@@ -1,13 +1,11 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./Landing.css";
 import Logo from "../assets/brand/logo.svg";
 import { ReactComponent as OrIcon } from "./assets/or.svg";
 import { ReactComponent as Head } from "./assets/evo.svg";
 import { ReactComponent as Sub } from "./assets/sub.svg";
-import Login from "./Login";
-import Signup from "./Signup";
 import FilledBtn from "../components/FilledButton";
 import HollowBtn from "../components/HollowButton";
 
