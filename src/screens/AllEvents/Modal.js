@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Modal.css";
 import calendargrey from "./assets/calendargrey.svg";
 import rupeegrey from "./assets/rupeegrey.svg";
 import poster from "./assets/poster.svg";
-import close from "./assets/close.svg";
 import likes from "./assets/likes.svg";
 import views from "./assets/views.svg";
 

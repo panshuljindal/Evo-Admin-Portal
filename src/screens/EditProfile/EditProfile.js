@@ -1,9 +1,7 @@
 import Navbar from "../components/Navbar";
 import InputBox from "../components/InputBox";
 import { TextareaAutosize } from "@mui/material";
-import FileUpload from "../components/FileUpload";
 import "./EditProfile.css";
-import Chip from "@mui/material/Chip";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Button from "@mui/material/Button";
@@ -106,7 +104,7 @@ function EditProfile() {
     } else if(event.target.files[1]){
       reader.readAsDataURL(event.target.files[1]);
       reader.onloadend = () => {
-        if(type == "backdrop"){
+        if(type === "backdrop"){
           setBackdropFormValues((prevFormValues) => ({
             ...prevFormValues,
             image: event.target.files ? event.target.files[0] : null,
@@ -163,7 +161,7 @@ function EditProfile() {
         headers
       )
       .then((res) => {
-        if (res.status == 200) {
+        if (res.status === 200) {
           localStorage.setItem("clubDetails", JSON.stringify(res.data));
           setBanner({
             data: "Profile Updated Successfully",
@@ -310,7 +308,7 @@ function EditProfile() {
       <div className="right-container">
         <div className="poster-container backdropChange">
           <label htmlFor="fileInput">
-            <img src={clubDetails.backdrop}></img>
+            <img src={clubDetails.backdrop} alt="Club Poster"></img>
           </label>
           <input
             type="file"
@@ -324,7 +322,7 @@ function EditProfile() {
         </div>
         <div className="logo-container logoChange">
           <label htmlFor="fileInputL">
-            <img src={clubDetails.logo}></img>
+            <img src={clubDetails.logo} alt="Club logo"></img>
           </label>
           <input
             type="file"

@@ -2,10 +2,10 @@ import "./Dashboard.css";
 import { Link, useHistory } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import PartnerBanner from "./assets/partner.svg";
-import Notif from "./Notif";
 import Upcoming from "./Upcoming";
 import Liked from "./Liked";
 import Viewed from "./Viewed";
+import Loading from "../../components/Loading";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -15,6 +15,7 @@ function Dashboard() {
 	const [likedEvents, setlikedEvents] = useState([]);
 
 	const [viewedEvents, setViewedEvents] = useState([]);
+	const [isLoading, setLoading] = useState(true);
 	const history = useHistory();
 	useEffect(() => {
 		axios
@@ -29,6 +30,7 @@ function Dashboard() {
 				}
 			)
 			.then((res) => {
+				setLoading(false);
 				setEvents(res.data.upcomingEvents.slice(0, 2));
 				setlikedEvents(res.data.likedEvents.slice(0, 2));
 				setViewedEvents(res.data.viewedEvents.slice(0, 2));
@@ -42,7 +44,9 @@ function Dashboard() {
 				<div className="left">
 					<Navbar />
 				</div>
-				<div className="middle-dash">
+				{isLoading && <Loading></Loading>}
+
+				{ <div className="middle-dash">
 					<div className="middle-top">
 						<img
 							src={PartnerBanner}
@@ -109,21 +113,29 @@ function Dashboard() {
 							})}
 						</div>
 					</div>
-				</div>
+				</div>}
 				<div className="right-dash">
 					<div className="notif-main">
 						<p className="notif">Notifications</p>
 						<div className="notif-text">
-						{likedEvents.map((i, ind) => {
+
+
+						{likedEvents=== [] ? (likedEvents.map((i, ind) => {
 								return (
 									<div>
 										{i.name} has {i.views} views.
 										<br></br>
-										{i.name} has {i.likes} views.
+										{i.name} has {i.likes} likes.
 
 									</div>
 								);
-							})}
+							})): <div>
+								Welcome to Evo.
+							<Link to="/profile" exact>
+								<span> Click Here </span>
+							</Link>
+							to complete your Profile
+								</div>}
 						</div>
 					</div>
 				</div>

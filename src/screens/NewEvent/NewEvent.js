@@ -2,7 +2,6 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import "./NewEvent.css";
 import InputBox from "../components/InputBox";
-import FilledBtn from "../components/FilledButton";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
 import { styled } from "@mui/system";
 import FileUpload from "../components/FileUpload";
@@ -114,7 +113,7 @@ function NewEvent() {
 		axios
 			.post("https://evo-backend-production.up.railway.app/events/create", data, headers)
 			.then((res) => {
-				if (res.status == 200) {
+				if (res.status === 200) {
 					setBanner({
 						data: "Event Added Successfully",
 						value: true,
