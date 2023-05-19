@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-// import { ReactComponent as Banner } from "./assets/banner.svg";
+import React from "react";
+
 import "./style.css";
 import banner from "./assets/banner.png";
 function Partner() {

@@ -1,19 +1,18 @@
 import Navbar from "../components/Navbar";
 import "./AllEvents.css";
-import poster from "./assets/poster.svg";
 import UpcomingEvent from "./UpcomingEvent";
-import Modal from "./Modal";
 import React, { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
 
 function AllEvents() {
 	const [show, setShow] = useState(true);
+	console.log(show)
 	const [events, setEvents] = useState([]);
-	const toggleShow = () => {
-		console.log("Show Changed")
-		return setShow(!show)
-	}
+	// const toggleShow = () => {
+	// 	console.log("Show Changed")
+	// 	return setShow(!show)
+	// }
 	useEffect(() => {
 		axios
 			.get(

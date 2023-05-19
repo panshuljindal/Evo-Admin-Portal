@@ -1,5 +1,4 @@
 import "./AllEvents.css";
-import poster from "./assets/poster.svg";
 import calendargrey from "./assets/calendargrey.svg";
 import rupeegrey from "./assets/rupeegrey.svg";
 import { useHistory } from "react-router-dom";

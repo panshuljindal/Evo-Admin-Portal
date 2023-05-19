@@ -2,7 +2,6 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import "./UpdateEvent.css";
 import InputBox from "../components/InputBox";
-import FilledBtn from "../components/FilledButton";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
 import { styled } from "@mui/system";
 import FileUpload from "../components/FileUpload";
@@ -12,7 +11,7 @@ import axios from "axios";
 import Button from "@mui/material/Button"
 import Banner from "../../components/Banner"
 import { useHistory } from "react-router-dom";
-import { BsEmojiSmileUpsideDown } from "react-icons/bs";
+
 
 const TextArea = styled(TextareaAutosize)(() => ({
 	width: "84%",
@@ -129,7 +128,7 @@ function UpdateEvent() {
 		axios
 			.put(`https://evo-backend-production.up.railway.app/events/updateEvent/${eventDetails._id}`, eventData, headers)
 			.then((res) => {
-				if (res.status == 200) {
+				if (res.status ===  200) {
 					setBanner({
 						data: "Event Updated Successfully",
 						value: true,
