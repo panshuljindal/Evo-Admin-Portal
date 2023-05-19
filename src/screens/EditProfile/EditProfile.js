@@ -310,7 +310,7 @@ function EditProfile() {
       <div className="right-container">
         <div className="poster-container backdropChange">
           <label htmlFor="fileInput">
-            <img src={clubDetails.backdrop}></img>
+            <img src={clubDetails.backdrop} ></img>
           </label>
           <input
             type="file"
