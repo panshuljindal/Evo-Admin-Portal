@@ -128,12 +128,11 @@
 	height: auto;
 	border-bottom: 0.5px solid #202020;
 	font-size: 14px;
-	line-height: 21px;
+	line-height: 35px;
 	text-align: center;
 	padding-bottom: 5%;
 	padding-left: 5%;
 	padding-right: 5%;
-	padding-top: 5%;
 	box-sizing: border-box;
 
 	color: #ffffff;

@@ -114,11 +114,16 @@ function Dashboard() {
 					<div className="notif-main">
 						<p className="notif">Notifications</p>
 						<div className="notif-text">
-							Welcome to Evo.{" "}
-							<Link to="/profile" exact>
-								<span>Click Here</span>
-							</Link>{" "}
-							to complete your Profile
+						{likedEvents.map((i, ind) => {
+								return (
+									<div>
+										{i.name} has {i.views} views.
+										<br></br>
+										{i.name} has {i.likes} views.
+
+									</div>
+								);
+							})}
 						</div>
 					</div>
 				</div>
