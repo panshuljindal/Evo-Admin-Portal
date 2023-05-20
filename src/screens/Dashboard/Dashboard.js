@@ -121,12 +121,12 @@ function Dashboard() {
 						<div className="notif-text">
 
 
-						{likedEvents=== [] ? (likedEvents.map((i, ind) => {
+						{likedEvents!== [] ? (likedEvents.map((i, ind) => {
 								return (
 									<div>
-										{i.name} has {i.views} views.
+										Event {i.name} has {i.views} views.
 										<br></br>
-										{i.name} has {i.likes} likes.
+										Event {i.name} has {i.likes} likes.
 
 									</div>
 								);
