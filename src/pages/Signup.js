@@ -78,12 +78,10 @@ function Signup() {
             password: password,
             name: name,
             clubType: "Technical",
-            linkedIn: "sample.linkedin.com",
-            instagram: "sample.ig.com",
-            medium: "medium.com",
-            youtube: "yt.com",
-            twitter: "twitter.com",
-            [social]: value,
+            linkedIn: value.Linkedin,
+            instagram: value.Instagram,
+            medium: value.Medium,
+            twitter: value.Twitter,
           })
           .then((res) => {
             localStorage.setItem("token", res.data["auth-token"]);
