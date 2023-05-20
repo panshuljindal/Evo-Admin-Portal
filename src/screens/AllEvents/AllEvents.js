@@ -6,8 +6,6 @@ import axios from "axios";
 import { useEffect } from "react";
 
 function AllEvents() {
-	const [show, setShow] = useState(true);
-	console.log(show)
 	const [events, setEvents] = useState([]);
 	// const toggleShow = () => {
 	// 	console.log("Show Changed")
@@ -56,7 +54,7 @@ function AllEvents() {
 									).toDateString()}
 									price={i.eventCost + " Rs"}
 									poster={i.poster}
-									onClick={() => setShow(true)}
+								
 								/>
 							)
 						})
