@@ -11,7 +11,7 @@ import axios from "axios";
 import Button from "@mui/material/Button"
 import Banner from "../../components/Banner"
 import { useHistory } from "react-router-dom";
-
+import Loading from "../../components/Loading";
 
 const TextArea = styled(TextareaAutosize)(() => ({
 	width: "84%",
@@ -73,6 +73,7 @@ function UpdateEvent() {
 		"NGO",
 		"Workshop",
 	];
+	const [isLoading, setLoading] = useState(false);
 	const defaultTags = {}
 	for (const key in chips) {
 		if (eventDetails.eventType.includes(chips[key])) {
@@ -93,6 +94,7 @@ function UpdateEvent() {
 		setTags({ ...tags, [name]: !tags[name] });
 	};
 	const handleSubmit = () => {
+		setLoading(true);		
 		const eventType = []
 		for (const key in tags) {
 			if (tags[key]) {
@@ -129,6 +131,8 @@ function UpdateEvent() {
 			.put(`https://evo-backend-production.up.railway.app/events/updateEvent/${eventDetails._id}`, eventData, headers)
 			.then((res) => {
 				if (res.status ===  200) {
+					setLoading(false);		
+
 					setBanner({
 						data: "Event Updated Successfully",
 						value: true,
@@ -140,6 +144,7 @@ function UpdateEvent() {
 				}
 
 			}).catch((error) => {
+				setLoading(false);		
 				console.log(error)
 
 			})
@@ -164,6 +169,7 @@ function UpdateEvent() {
 				<div className="left">
 					<Navbar />
 				</div>
+				{isLoading && <Loading></Loading>}
 				<div className="middle-new">
 					<p className="title">Update Event</p>
 					<InputBox

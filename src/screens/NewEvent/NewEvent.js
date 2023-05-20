@@ -11,7 +11,7 @@ import axios from "axios";
 import Button from "@mui/material/Button"
 import Banner from "../../components/Banner"
 import { useHistory } from "react-router-dom";
-
+import Loading from "../../components/Loading";
 const TextArea = styled(TextareaAutosize)(() => ({
 	width: "84%",
 	backgroundColor: "#181818",
@@ -56,6 +56,7 @@ function NewEvent() {
 	const [description, setDescription] = useState("")
 	const [price, setPrice] = useState(null)
 	const [duration, setDuration] = useState(null)
+	const [isLoading, setLoading] = useState(false);
 	const [banner, setBanner] = useState({
 		data: "",
 		value: false,
@@ -87,6 +88,7 @@ function NewEvent() {
 		setTags({ ...tags, [name]: !tags[name] });
 	};
 	const handleSubmit = () => {
+		setLoading(true);
 		const eventType = []
 		for (const key in tags) {
 			if (tags[key]) {
@@ -114,6 +116,8 @@ function NewEvent() {
 			.post("https://evo-backend-production.up.railway.app/events/create", data, headers)
 			.then((res) => {
 				if (res.status === 200) {
+				setLoading(false);
+
 					setBanner({
 						data: "Event Added Successfully",
 						value: true,
@@ -125,6 +129,7 @@ function NewEvent() {
 				}
 
 			}).catch((error) => {
+				setLoading(false);
 				console.log(error)
 
 			})
@@ -149,6 +154,8 @@ function NewEvent() {
 				<div className="left">
 					<Navbar />
 				</div>
+				{isLoading && <Loading></Loading>}
+
 				<div className="middle-new">
 					<p className="title">New Event</p>
 					<InputBox

@@ -16,6 +16,7 @@ import {
   FaLinkedinIn,
   FaMediumM,
 } from "react-icons/fa";
+import Loading from "../../components/Loading";
 const reader = new FileReader();
 const NewAvatar = styled(Avatar)(() => ({
   border: "1px solid transparent",
@@ -44,6 +45,7 @@ const TextArea = styled(TextareaAutosize)(() => ({
 }));
 function EditProfile() {
   const clubDetails = JSON.parse(localStorage.getItem("clubDetails"));
+  const [isLoading, setLoading] = useState(false);
   const history = useHistory();
   const [tagLine, setTagLine] = useState(clubDetails.tagLine);
   const [emailID, setEmailID] = useState(clubDetails.email);
@@ -124,6 +126,7 @@ function EditProfile() {
   };
 
   const handleSubmit = () => {
+    setLoading(true)
     const data = {
       name: name,
       tagline: tagLine,
@@ -162,6 +165,8 @@ function EditProfile() {
       )
       .then((res) => {
         if (res.status === 200) {
+      		setLoading(false);		
+
           localStorage.setItem("clubDetails", JSON.stringify(res.data));
           setBanner({
             data: "Profile Updated Successfully",
@@ -175,6 +180,7 @@ function EditProfile() {
 
       })
       .catch((error) => {
+    		setLoading(false);		
         console.log(error);
       });
   };
@@ -196,9 +202,12 @@ function EditProfile() {
       <div className="left">
         <Navbar />
       </div>
+      {isLoading && <Loading></Loading>}
 
       <div className="middle-container">
+
         <div className="test">
+
           <p className="title">Edit Profile</p>
           <p className="label">Basic Info</p>
           <InputBox
@@ -305,7 +314,9 @@ function EditProfile() {
           </Button>
         </div>
       </div>
+      
       <div className="right-container">
+
         <div className="poster-container backdropChange">
           <label htmlFor="fileInput">
             <img src={clubDetails.backdrop} alt="Club Poster"></img>

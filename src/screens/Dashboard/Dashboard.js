@@ -36,6 +36,7 @@ function Dashboard() {
 				setViewedEvents(res.data.viewedEvents.slice(0, 2));
 			})
 			.catch((err) => {
+				setLoading(false);
 				console.log(err);
 			});
 	}, []);
